@@ -1,0 +1,549 @@
+/*:root{
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuentesParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784d3c;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris: #e1e1e1;
+}
+/*UTILIDADES
+.no-margin{
+    margin: 0%;
+}
+.no-padding{
+    padding: 0%;
+}
+
+
+body{
+    font-family: var(--fuentesParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}*/
+
+:root {
+    --colorportada: #ffffff;
+    --colorLinea: #e1e1e1;
+    --fondoBoton: #4CAF50;
+    --colorTextoBoton: white;
+    --fondoBoton2: #277da1;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+.centrar-contenido {
+    margin: auto;
+}
+
+.img-rounded{
+    border-radius: 5%;
+}
+
+.contenido-header {
+    height: 80vh;
+    background-image: url(../assets/img/joropo22.jpg  );
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: end;
+    padding-bottom: 20px;
+}
+
+.contenido-header__texto {
+    color: var(--colorportada);
+}
+
+.cuadricula-inicio__item {
+    border-bottom: 1px solid var(--colorLinea);
+    margin-bottom: 20px;
+}
+
+.cuadricula-inicio__item:last-of-type {
+    border-bottom: none;
+}
+
+.contenedor {
+    max-width: 90%;
+    margin: auto;
+}
+
+.contexto {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contexto p {
+    text-align: center;
+}
+
+.banerTexto {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/img/gareza.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+.item {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--colorLinea);
+}
+
+.button {
+    background-color: var(--fondoBoton);
+    /* Green */
+    border: none;
+    color: var(--colorTextoBoton);
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.button_2 {
+    background-color: var(--fondoBoton2);
+}
+
+.button__border {
+    border-radius: 10px;
+}
+
+.card {
+    display: none;
+}
+
+.datos {
+    margin-top: 30px;
+}
+
+.datos__lista {
+    list-style-type: none;
+}
+
+.card-datos {
+    border: 1px solid var(--colorLinea);
+    padding-top: 15px;
+    margin: 20px auto 20px 0;
+    background-color: #e1e1e13f;
+}
+
+.prueba {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.relleno {
+    color: rgba(238, 130, 238, 0.849);
+}
+
+/* =========================================================================================
+aplica propiedades diferentes al .contenido-header de la página dondeAlojarse*/
+
+.contenido-header-dondeAlojarse p {
+    width: 50%;
+}
+
+/*=========================================================================================*/
+
+/*ajusta el contenido a las medidas correctas y habilita flex-box para organizar el texto siempre al centro */
+
+.contenido-header-dondeAlojarse {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/img/hotelPerro1.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.contenido-header-recreacional {
+    background-image: url(../assets/img/recreacion2.jpg);
+    background-position: center;
+    background-position-y: 75%;
+    background-size: cover;
+    color: white;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-header-recreacional p{
+ max-width: 70%;
+}
+.contenido-header-compras p{
+    max-width: 70%;
+}
+.contenido-header-compras{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/img/compras.jpg);
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+.contenido-header-evento{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/img/joropo11.jpg);
+    background-position: center;
+    background-position-y: 20%;
+}
+.contenido-header-afuera{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-position: bottom;
+    background-size: cover;
+    color: brown;
+}
+/*=========================================================================================*/
+
+/*pone en negrilla la letra*/
+
+.indicador {
+    font-weight: bold;
+}
+
+/*=========================================================================================*/
+
+/*aplica estilos a la portada de la página y configura la imagen de fondo para que se vea siempre al centro*/
+
+.contenedor-header_restaurante {
+    
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+}
+
+/*=========================================================================================*/
+
+/*aplica estilos a la página dóndoe comer en yopal, estilos que son específicos como el fondo de portada
+que es diferente al de los demás*/
+
+.fondo-restaurantes {
+    background-image: url(../assets/img/sitios/portaraRestaurantes.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.restaurante-texto {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+/*=========================================================================================*/
+.lateral{
+    margin: 40px 0;
+}
+/*=========================================================================================*/
+/*estilos para header en buscador*/
+.contenido-header-buscador{
+    background-image: url(../assets/yopal.jpg);
+    background-position: center;
+    overflow: hidden;
+    height: 60vh;
+    display: flex;
+    flex-direction: column-reverse;
+    color: white;
+}
+.contenido-header-buscador h1{
+    font-size: 100px;
+}
+/*=========================================================================================*/
+/*estilos para barra de búsqueda*/
+.contenedor-form{
+    display: flex;
+    width: 90%;
+    height: 100px;
+    margin: auto;
+}
+.form-buscar{
+    width: 100%;
+    margin: auto 0;
+}
+#search{
+    width: 70%;
+    border: 1px solid #e1e1e1;
+    background-color: #a8dadc5b;
+    border-bottom: 3px solid #1d3557;
+}
+.button-search{
+    margin-left: 20px;
+    background-color: #1d3557;
+    border: unset;
+    color: white;
+    padding: 4px 6px;
+    border-radius: 2px;
+}
+
+.contenedor-resultado{
+    width: 90%;
+    margin: auto;
+}
+.row{
+    margin-right: 15px;
+}
+.footanari{
+    background-color: #f8f9fa;
+}
+.color{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.eventos__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+}
+.item-evento{
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    padding: 10px 0;
+    height: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+}
+.contenedor-evento_item{
+    transition: .5s;
+    border-radius: 15px;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+    margin-bottom: 20px;
+    filter: brightness(110%);
+}
+.item-evento h4{
+    margin: 5px;
+}
+.eventos__grid_main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    margin: auto;
+}
+@media(min-width:768px) {
+    .banerTexto {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-position: right;
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-position-y: 40%;
+        margin-bottom: 20px;
+    }
+    .contenido-header__texto {
+        padding-bottom: 100px;
+    }
+    .cuadricula-inicio {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+    }
+    .cuadricula-inicio__item:last-of-type {
+        border-bottom: 1px solid var(--colorLinea);
+    }
+    .eventos__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .eventos__grid_main{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        margin: auto;
+    }
+    
+    .dos-columnas {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 20px;
+    }
+    .dos-columnas__hotel {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 20px;
+    }
+    /*=========================================================================================*/
+    /*habilita flexbox para centrar los items horizontalmente y espacios con el siguiente elemento, ademas de configurar el borde para mostrar el límite del elemento*/
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--colorLinea);
+    }
+    .item__img {
+        width: 350px;
+    }
+    .item__info h4 {
+        font-size: 16px;
+    }
+    /*=========================================================================================*/
+    /*
+    .hvr-grow {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+      }
+      .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }*/
+    .hvr-float {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+    .hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+    }
+    .button:hover {
+        text-decoration: none;
+        transition: 0.5s;
+        background-color: var(--colorTextoBoton);
+        color: var(--fondoBoton);
+    }
+    .button_2:hover {
+        background-color: var(--colorTextoBoton);
+        color: var(--fondoBoton2);
+    }
+    /* Bounce To Top */
+    .hvr-bounce-to-top {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+        -webkit-transition-property: color;
+        transition-property: color;
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+    }
+    .card {
+        height: 200px;
+        /*background-image: url(../assets/img/hotel.jpg);*/
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .card__img {
+        position: absolute;
+        height: 150px;
+        overflow: hidden;
+    }
+    .card__texto {
+        font-family: 'Oswald', sans-serif;
+        text-align: center;
+        display: block;
+        padding: 10px 10px;
+        z-index: 1;
+        color: white;
+        /*
+        background-color: rgba(255, 255, 255, 0.295);
+        border-radius: 15px ;*/
+    }
+    .card-datos {
+        width: 50%;
+    }
+    .carousel {
+        padding-bottom: 20px;
+    }
+    /*=========================================================================================*/
+    /*ajusta el tamaño de las imágenes en el slider*/
+    .carousel_img {
+        max-height: 400px;
+    }
+    /*muestra el tamaño completo de las imágenes cuandeo se hace hover por sobre*/
+    .carousel_img:hover {
+        max-height: 100%;
+    }
+    /*=========================================================================================*/
+    .contenedor-form{
+        width: 70%;
+        margin: auto 100px 20px auto;
+    }
+
+    /*=========================================================================================*/
+    .contenedor-resultado{
+        width: 70%;
+        margin: auto;
+    }
+    .resultado__img{
+        min-width: 200px;
+        max-width: 200px;
+    }
+    .contenedor-evento_item{
+        transition: .5s;
+        filter: brightness(200%);
+    }
+    .contenedor-evento_item:hover{
+        filter: unset;
+    }
+}
