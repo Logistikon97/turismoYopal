@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!--español-->
-<!--carga las configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
+<!--carga lassss configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
         invoca también el CSS de bootstrap y la hoja de estilos local-->
 
 <head>
