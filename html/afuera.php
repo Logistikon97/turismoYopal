@@ -2,7 +2,8 @@
 <html lang="es">
 <!--español-->
 <!--carga lassss configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
-        invoca también el CSS de bootstrap y la hoja de estilos local-->
+        invoca también el CSS de bootstrap y la hoja de estilos local
+        este es un texto de prueba con la versiónd e escritorio-->
 
 <head>
     <meta charset="UTF-8">
