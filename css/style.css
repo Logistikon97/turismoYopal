@@ -245,7 +245,6 @@ aplica propiedades diferentes al .contenido-header de la página dondeAlojarse*/
 /*aplica estilos a la portada de la página y configura la imagen de fondo para que se vea siempre al centro*/
 
 .contenedor-header_restaurante {
-    
     height: 60vh;
     background-position: center;
     background-size: cover;

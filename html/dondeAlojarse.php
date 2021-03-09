@@ -44,7 +44,7 @@
             <div class="datos"><!-- 2 -->
             <?php 
                 @$categoria = $_GET['name'];
-                include '../scripts/cargador.php';
+                include '../scripts/cargador.php'; //desde funciones.php
                 @$page = $_GET["page"];
                 ?>
                 <!-- OLD

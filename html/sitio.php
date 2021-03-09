@@ -12,25 +12,24 @@
     <!--<link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title><?php echo $_GET['siteName']?></title>
 </head>
 <?php include '../scripts/conexion.php';
         $entrada = $_GET['siteName'];
-        $stmt = $con->prepare('SELECT imgCod FROM images WHERE images.lugar="' . $entrada . '" LIMIT 1');
+        $stmt = $con->prepare('SELECT nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img='.$entrada.' LIMIT 1');
         $stmt->execute();
         $img = $stmt->fetch(PDO::FETCH_ASSOC);
         
         //consulta datos del sitio
-        $consulta = 'SELECT * FROM `sitio` WHERE sitio.nombre = "' . $entrada . '"';
+        $consulta = 'SELECT * FROM `sitio` WHERE sitio.codigo = "' . $entrada . '"';
         $stmt = $con->prepare($consulta);
         $stmt->execute();
         $DatosSitio = $stmt->fetch(PDO::FETCH_ASSOC); /*datos del sitio*/
-
         //verifica qué redes sociales tiene
         function sociales($entrada){
             include '../scripts/conexion.php';
-            $consulta = 'SELECT * FROM `red_social` WHERE red_social.nombreSitio ="' . $entrada . '"';
+            $consulta = 'SELECT * FROM red_sociales WHERE red_sociales.codigo_sitio='.$entrada;
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $social = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -90,7 +89,7 @@
         <!--ajusta el mensaje de bienvenida en la portada-->
         
 
-        <div class="contenedor-header_restaurante " style="background-image: url(../assets/img/sitios/<?php echo $img['imgCod'];?>.jpg)">
+        <div class="contenedor-header_restaurante " style="background-image: url(../assets/img/sitios/<?php echo $img['imagen'];?>.jpg)">
 
         </div>
     </header>
@@ -101,6 +100,7 @@
             <div class="dos-columnas__hotel">
                 <!--"datos" contiene toda la información relacionada al lugar. todo lo que sea necesario insertar está dentro de este contenedor-->
                 <div class="datos">
+                    <?php echo '<span style="color:green;">DATO QUE ENTRA: '.$entrada.'</span>';?>
                     <h2><?php echo $DatosSitio['nombre']; ?></h2>
                     <p><?php echo $DatosSitio['descripcion']; ?>
                     </p>
@@ -126,16 +126,16 @@
                             <div class="carousel-inner">
 
                                 <?php
-                                $img = $con->query('SELECT * FROM `images` WHERE images.lugar ="' . $entrada . '"');
+                                $img = $con->query('SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img ='.$entrada);
                                 echo '<div class="carousel-item active">
                             <div class="carousel_img">
-                                <img class="d-block w-100" src="../../assets/img/desliza.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="../assets/img/desliza.jpg" alt="Second slide">
                             </div>
                         </div>';
                                 while ($row = $img->fetch(PDO::FETCH_ASSOC)) {
                                     echo '<div class="carousel-item">
                                 <div class="carousel_img">
-                                    <img class="d-block w-100" src="../../assets/img/sitios/' . $row['imgCod'] . '.jpg" alt="Second slide">
+                                    <img class="d-block w-100" src="../assets/img/sitios/' . $row['imagen'] . '.jpg" alt="Second slide">
                                 </div>
                             </div>';
                                 }

@@ -10,8 +10,8 @@
  * Modifica el nombre de la carpeta en la que se encuentra
  * la imagen y escribe el nombre de la imagen en el documento
  */
-function dirImg($cat,$siteName){
-    $consulta = 'SELECT imgCod FROM images WHERE images.lugar = "' . $siteName . '"';
+function dirImg($cat,$codigoSitio){
+    $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img='.$codigoSitio;
     require '../scripts/conexion.php';
     $stmt = $con->prepare($consulta);
     $stmt->execute();
@@ -20,25 +20,25 @@ function dirImg($cat,$siteName){
     switch ($cat) {
         //los nombres de carpeta deben coincidir en los archivos del proyecto
         case 'comercio':
-            return 'sitios/'. $resultado["imgCod"];
+            return 'sitios/'. $resultado["imagen"];
             break;
         case 'afuera':
-            return 'sitios/' . $resultado["imgCod"];
+            return 'sitios/' . $resultado["imagen"];
             break;
         case 'evento':
-            return 'eventos/' . $resultado["imgCod"];
+            return 'eventos/' . $resultado["imagen"];
             break;
         case 'recreacional':
-            return 'sitios/' . $resultado["imgCod"];
+            return 'sitios/' . $resultado["imagen"];
             break;
         case 'restaurante':
-            return 'sitios/' . $resultado["imgCod"];
+            return 'sitios/' . $resultado["imagen"];
             break;
         case 'hotel':
-            return 'sitios/' . $resultado["imgCod"];
+            return 'sitios/' . $resultado["imagen"];
             break;
         case 'historia':
-            return 'sitios/'.$resultado["imgCod"];
+            return 'sitios/'.$resultado["imagen"];
             break;
     }
 }
@@ -55,17 +55,17 @@ function url($dato){
 */
 function imagen($dato){
     require('../scripts/conexion.php');
-    $consulta = 'SELECT imgCod FROM images WHERE images.lugar = "' . $dato . '"';
+    $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img = '.$dato;
     $stmt = $con->prepare($consulta);
     $stmt->execute();
     $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $resultado["imgCod"];
+    return $resultado["imagen"];
 }
 /**devuelve el nombre de las imagenes de la categoria eventos
  */
 function imagenEvento($evento){
     include 'conexion.php';
-    $consulta = 'SELECT `images`.`imgCod` AS "imagen" FROM `images` WHERE `images`.`lugar` ="' . $evento . '"';
+    $consulta = 'SELECT `images`.`nombre_imagen` AS "imagen" FROM `images` WHERE `images`.`codigo_sitio_img` ='.$evento;
     $stmt = $con->prepare($consulta);
     $stmt->execute();
     $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -144,10 +144,10 @@ function buscador(){
             foreach (consulta($consulta) as $row) {
                 echo '<div class="item ">
                             <div class="item__img resultado__img">
-                                <a href="alojo.html"><img class ="img-rounded" src="../assets/img/'.dirImg($row["categoria"],$row["nombre"]).'.jpg" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
+                                <a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="../assets/img/'.dirImg($row["categoria"],$row["codigo"]).'.jpg" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
                             </div>
                              <div class="item__info">
-                                <h3>' . $row["nombre"] . '</h3><h4>' . $row["direccion"] . '</h4><p>' . substr($row["descripcion"], 0, 120). '....</p><a href="sitio?siteName='.$row['nombre'].'" class="button ">Más información</a><!-- 2.1 -->
+                                <h3>' . $row["nombre"] . '</h3><h4>' . $row["direccion"] . '</h4><p>' . substr($row["descripcion"], 0, 120). '....</p><a href="sitio?siteName='.$row['codigo'].'" class="button ">Más información</a><!-- 2.1 -->
                             </div>
                         </div>';
             }
@@ -176,7 +176,9 @@ function buscador(){
         echo '</nav>';
     }
 }
-
+/**
+ * hace una consulta y devuelve un vector, de preferencia usarlo cuando se sabe que hay pocos resultados
+ */
 function consulta($consulta)
     {
         include '../scripts/conexion.php';

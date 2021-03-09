@@ -20,12 +20,13 @@
         function eventosLista()
         {
             include 'scripts/conexion.php';
-            $consulta = 'SELECT  `eventos`.`nombreEvento` FROM eventos ORDER BY eventos.`fecha_inicio` ASC';
+            $consulta = 'SELECT `sitio`.`codigo` AS "codigo",`sitio`.`nombre` AS "nombreEvento",fechas_eventos.fecha_inicio FROM sitio,fechas_eventos WHERE sitio.categoria="evento" AND fechas_eventos.codigo_evento=sitio.codigo ORDER BY fechas_eventos.fecha_inicio ASC';
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
-                echo '<div class="contenedor-evento_item" style="background-image: url(assets/img/eventos/'.imagenEvento($row['nombreEvento']).'.jpg);">
+                echo '<span style="color:green;">DATO QUE ENTRA: '.imagenEvento($row['codigo']).'</span>';
+                echo '<div class="contenedor-evento_item" style="background-image: url(../assets/img/eventos/'.imagenEvento($row['codigo'])/*desde funciones.php*/.'.jpg);">
                 <a href="#"  style="text-decoration: none;"><div class="item-evento">
                     <h4>' . $row['nombreEvento'] . '</h4>
                 </div></a>

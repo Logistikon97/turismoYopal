@@ -34,8 +34,8 @@
         <div class="contenedor">
             <div class="contexto">
                 <!--ajusta el texto de presentación y aplica estilos-->
-                <h2 class="centrar-texto">Yopal y sus alrededores tienen bastante que mostrarte</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem similique ipsam dolorem! Corrupti
+                <h2 class="centrar-texto">¿Qué hacer en yopal?</h2>
+                <p style="width:80%; margin-top:20px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem similique ipsam dolorem! Corrupti
                     eveniet tempora accusantium rem magnam minima hic, ea obcaecati, temporibus suscipit, earum ut
                     aliquid veniam ex provident?</p>
             </div>
@@ -106,14 +106,14 @@
         function eventosInicio()
         {
             include 'scripts/conexion.php';
-            $consulta = 'SELECT  `fechasevento`.`evento` FROM fechasevento ORDER BY fechasevento.`fecha_inicio` ASC LIMIT 0,5';
+            $consulta = 'SELECT `sitio`.codigo AS "evento",`sitio`.nombre AS "nombre", `fechas_eventos`.fecha_inicio,`fechas_eventos`.fecha_fin FROM `fechas_eventos`,`sitio` WHERE `fechas_eventos`.codigo_evento=sitio.codigo ORDER BY `fechas_eventos`.fecha_inicio ASC LIMIT 0,5';
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
                 echo '<div class="contenedor-evento_item" style="background-image: url(assets/img/eventos/'.imagenEvento($row['evento']).'.jpg);">
                 <a href="#"  style="text-decoration: none;"><div class="item-evento">
-                    <h4>' . $row['evento'] . '</h4>
+                    <h4>' . $row['nombre'] .'</h4>
                 </div></a>
             </div>';
             }

@@ -8,6 +8,19 @@ function nuevo($dato)
     require('conexion.php');
     //se saca el número de items que hay en la base de datos----------
     $NUM_ITEMS_BY_PAGE = 6;
+    if(isset($dato)){
+        echo '<p style="color:green"> se presionó el botón</p>';
+    }else{
+        echo '<p style="color:red"> no se presionó el botón</p>';
+        @$dato=$_GET["dato"];
+    }
+    if($dato != null){
+        echo '<p style="color:green"> Buscó "'.$dato.'"</p>';
+    }else{
+        echo '<p style="color:green"> Mostrando todo</p>';
+        @$dato=$_GET["dato"];
+    }
+
     $consulta = 'SELECT COUNT(*) as "total" FROM sitio WHERE sitio.categoria ="' . $dato . '"';
     $stmt = $con->query($consulta);
     $numItem = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -37,14 +50,14 @@ function nuevo($dato)
         echo '<ul class="row items " style="margin-right:15px">';
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="item ">
-        <div class="item__img resultado__img"><a href="sitio?siteName='.$row['nombre'].'"><img class ="img-rounded" src="../assets/img/sitios/'.imagen($row["nombre"])/*desde funciones.php */.'.jpg" alt="nada" srcset=""
+        <div class="item__img resultado__img"><a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="../assets/img/sitios/'.imagen($row["codigo"])/*desde funciones.php */.'.jpg" alt="nada" srcset=""
                     title="más información"></a>
         </div>
         <div class="item__info">
             <h3>' . $row["nombre"] . '</h3>
             <h4>' . $row["direccion"] . '</h4>
             <p>' . substr($row["descripcion"], 0, 120) . '...</p>
-            <a href="sitio?siteName='.$row['nombre'].'" class="button ">Más información</a><!-- 2.1 -->
+            <a href="sitio?siteName='.$row['codigo'].'" class="button ">Más información</a><!-- 2.1 -->
             ' . url($row["sitioWeb"]) . '
         </div>
     </div>';
@@ -55,22 +68,22 @@ function nuevo($dato)
         //Organiza los índices del paginador
         if ($total_pages > 1) {
             if ($page != 1) {
-                echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . ($page - 1) . '"><span aria-hidden="true">&laquo;</span></a></li>';
+                echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . ($page - 1) . '&dato='.$dato.'"><span aria-hidden="true">&laquo;</span></a></li>';
             }
             //mustra todos los indices necesarios
             for ($i = 1; $i <= $total_pages; $i++) {
                 if ($page == $i) {
                     echo '<li class="page-item active"><a class="page-link" href="#">' . $page . '</a></li>';
                 } else {
-                    echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . $i . '">' . $i . '</a></li>';
+                    echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . $i . '&dato='.$dato.'">' . $i . '</a></li>';
                 }
             }
 
             if ($page != $total_pages) {
-                echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . ($page + 1) . '"><span aria-hidden="true">&raquo;</span></a></li>';
+                echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . ($page + 1) . '&dato='.$dato.'"><span aria-hidden="true">&raquo;</span></a></li>';
             }
         }
         echo '</ul>';
-        echo '</nav>';
+        echo '</nav>'; 
     }
 }
