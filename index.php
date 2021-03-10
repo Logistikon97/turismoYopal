@@ -103,6 +103,9 @@
             </div>
         </div>
         <?php
+        /**
+         * obtiene los eventos ordenados por fecha más reciente
+         */
         function eventosInicio()
         {
             include 'scripts/conexion.php';

@@ -7,6 +7,6 @@ try{
     //echo "<p style='color:green'>base de datos en línea</p>";
 }
 catch(PDOException $e){
-    echo "Error".$e->get_message();
+    echo "Error no se ha conectado";
 }
 ?>

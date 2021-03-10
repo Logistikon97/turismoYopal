@@ -20,7 +20,6 @@
         $stmt = $con->prepare('SELECT nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img='.$entrada.' LIMIT 1');
         $stmt->execute();
         $img = $stmt->fetch(PDO::FETCH_ASSOC);
-        
         //consulta datos del sitio
         $consulta = 'SELECT * FROM `sitio` WHERE sitio.codigo = "' . $entrada . '"';
         $stmt = $con->prepare($consulta);

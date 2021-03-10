@@ -47,22 +47,6 @@
                 include '../scripts/cargador.php'; //desde funciones.php
                 @$page = $_GET["page"];
                 ?>
-                <!-- OLD
-                    <div class="item">
-                    <div class="item__img">
-                        <img src="../assets/img/prototipo.jpg" alt="nada" srcset="" title="imagen del lugar">
-                    </div>
-                    <div class="item__info">
-                        <h3>nombre del hotel 3</h3>
-                        <h4>dirección</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto exercitationem quos
-                            harum rem
-                            commodi veniam obcaecati qui placeat quo.</p>
-                        <a href="#" class="button">Más información</a>
-                        <a href="https://www.google.com" class="button button_2" target="_blank">por si tiene website</a>
-                    </div>
-                </div>
-                -->  
             </div>
         </div>
     </div>
