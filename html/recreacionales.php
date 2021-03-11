@@ -49,6 +49,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php';
+                nuevo($categoria,'recreacionales'); 
                 @$page = $_GET["page"];
                 ?>
                 <!--FIN LISTA DE ESTABLECIMIENTOS-->

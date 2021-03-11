@@ -51,6 +51,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php';
+                nuevo($categoria,'dondeComer'); 
                 @$page = $_GET["page"];
                 ?>
                 <!--FIN LISTA DE ESTABLECIMIENTOS-->

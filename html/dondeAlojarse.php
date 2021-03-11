@@ -45,6 +45,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php'; //desde funciones.php
+                nuevo($categoria,'dondeAlojarse'); 
                 @$page = $_GET["page"];
                 ?>
             </div>

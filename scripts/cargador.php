@@ -1,9 +1,9 @@
 <?php
 require('conexion.php');
-nuevo($categoria); 
+
 
 //consulta toda la información sobre los sitios y los ajusta de 6 en 6 mostrándolos en lista con paginación
-function nuevo($dato)
+function nuevo($dato,$nombrePagina)
 {
     require('conexion.php');
     //número de items por página
@@ -69,19 +69,19 @@ function nuevo($dato)
         //Organiza los índices del paginador
         if ($total_pages > 1) {
             if ($page != 1) {
-                echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . ($page - 1) . '&dato='.$dato.'"><span aria-hidden="true">&laquo;</span></a></li>';
+                echo '<li class="page-item"><a class="page-link" href="'.$nombrePagina.'.php?page=' . ($page - 1) . '&dato='.$dato.'"><span aria-hidden="true">&laquo;</span></a></li>';
             }
             //mustra todos los indices necesarios
             for ($i = 1; $i <= $total_pages; $i++) {
                 if ($page == $i) {
                     echo '<li class="page-item active"><a class="page-link" href="#">' . $page . '</a></li>';
                 } else {
-                    echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . $i . '&dato='.$dato.'">' . $i . '</a></li>';
+                    echo '<li class="page-item"><a class="page-link" href="'.$nombrePagina.'.php?page=' . $i . '&dato='.$dato.'">' . $i . '</a></li>';
                 }
             }
 
             if ($page != $total_pages) {
-                echo '<li class="page-item"><a class="page-link" href="dondeAlojarse.php?page=' . ($page + 1) . '&dato='.$dato.'"><span aria-hidden="true">&raquo;</span></a></li>';
+                echo '<li class="page-item"><a class="page-link" href="'.$nombrePagina.'.php?page=' . ($page + 1) . '&dato='.$dato.'"><span aria-hidden="true">&raquo;</span></a></li>';
             }
         }
         echo '</ul>';
