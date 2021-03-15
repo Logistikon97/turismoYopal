@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <!--español-->
-
-<head>
-    <!--carga las configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
-        invoca también el CSS de bootstrap y la hoja de estilos local-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="css/normalize.css"> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <title><?php echo $_GET['siteName']?></title>
-</head>
 <?php include '../scripts/conexion.php';
         $entrada = $_GET['siteName'];
         $stmt = $con->prepare('SELECT nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img='.$entrada.' LIMIT 1');
@@ -53,6 +39,21 @@
             }
         }
         ?>
+
+<head>
+    <!--carga las configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
+        invoca también el CSS de bootstrap y la hoja de estilos local-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <title><?php echo $DatosSitio["nombre"]?></title>
+</head>
+
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
@@ -121,7 +122,7 @@
                     <div>
 
                         <!--CAROUSSEL-->
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="max-width: 500px; margin:auto">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="max-width: 500px; margin:auto;">
                             <div class="carousel-inner">
 
                                 <?php
@@ -152,10 +153,17 @@
                         <!--FIN CAROUSSEL-->
                     </div>
                     <!--invoca el mapa de google con la ubicación del lugar-->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15889.947599167466!2d-72.40412316248776!3d5.3423887509801675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6b0d43572ff9f7%3A0x288004b1142bbbdd!2sPuntoAR!5e0!3m2!1sen!2sco!4v1613676832147!5m2!1sen!2sco" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <?php
+                        if($DatosSitio["mapa"]!=null){
+                            echo($DatosSitio["mapa"]);
+                        }else{
+                            echo '<span style="color: red;">no hay mapa de google</span>';
+                        }
+                    ?>
                 </div>
                 <!--muestra enlaces relacionados como cuadros con una imagen de fondo y texto sobrepuesto en cada item que envía al usuario a la dirección indicada-->
                 <aside class="lateral">
+                
                     <!--agrupa los elementos para que permitan la personalización-->
                     <div class="card">
                         <div class="card__img">
