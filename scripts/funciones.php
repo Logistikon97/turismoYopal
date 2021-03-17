@@ -10,71 +10,79 @@
  * Modifica el nombre de la carpeta en la que se encuentra
  * la imagen y escribe el nombre de la imagen en el documento
  */
-function dirImg($cat,$codigoSitio){
-    $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img='.$codigoSitio;
-    require '../scripts/conexion.php';
-    $stmt = $con->prepare($consulta);
-    $stmt->execute();
-    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    //$iman = $resultado["imgCod"];
-    switch ($cat) {
-        //los nombres de carpeta deben coincidir en los archivos del proyecto
-        case 'comercio':
-            return 'sitios/'. $resultado["imagen"];
-            break;
-        case 'afuera':
-            return 'sitios/' . $resultado["imagen"];
-            break;
-        case 'evento':
-            return 'eventos/' . $resultado["imagen"];
-            break;
-        case 'recreacional':
-            return 'sitios/' . $resultado["imagen"];
-            break;
-        case 'restaurante':
-            return 'sitios/' . $resultado["imagen"];
-            break;
-        case 'hotel':
-            return 'sitios/' . $resultado["imagen"];
-            break;
-        case 'historia':
-            return 'sitios/'.$resultado["imagen"];
-            break;
+class funciones
+
+{
+    function dirImg($cat, $codigoSitio)
+    {
+        $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img=' . $codigoSitio;
+        require '../scripts/conexion.php';
+        $stmt = $con->prepare($consulta);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        //$iman = $resultado["imgCod"];
+        switch ($cat) {
+                //los nombres de carpeta deben coincidir en los archivos del proyecto
+            case 'comercio':
+                return 'sitios/' . $resultado["imagen"];
+                break;
+            case 'afuera':
+                return 'sitios/' . $resultado["imagen"];
+                break;
+            case 'evento':
+                return 'eventos/' . $resultado["imagen"];
+                break;
+            case 'recreacional':
+                return 'sitios/' . $resultado["imagen"];
+                break;
+            case 'restaurante':
+                return 'sitios/' . $resultado["imagen"];
+                break;
+            case 'hotel':
+                return 'sitios/' . $resultado["imagen"];
+                break;
+            case 'historia':
+                return 'sitios/' . $resultado["imagen"];
+                break;
+        }
     }
-}
-//si el sitio tiene página web propia, se mostrará el botón para ir allá
-function url($dato){
-    if ($dato != null) {
-        return '<a href="' . $dato . '" class="button button_2" target="_blank">Web Site</a><!-- 2.2 -->';
+    //si el sitio tiene página web propia, se mostrará el botón para ir allá
+    function url($dato)
+    {
+        if ($dato != null) {
+            return '<a href="' . $dato . '" class="button button_2" target="_blank">Web Site</a><!-- 2.2 -->';
+        }
     }
-}
-/*
+    /*
     * devuelve el nombre de la imagen relacionada a ese sitio, por defecto, 
     * la primer imagen que esté almacenada, será que salga de portada, 
     * es decir imagen1 siempre será la portada
 */
-function imagen($dato){
-    require('../scripts/conexion.php');
-    $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img = '.$dato;
-    $stmt = $con->prepare($consulta);
-    $stmt->execute();
-    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $resultado["imagen"];
-}
-/**devuelve el nombre de las imagenes de la categoria eventos
- */
-function imagenEvento($evento){
-    include 'conexion.php';
-    $consulta = 'SELECT `images`.`nombre_imagen` AS "imagen" FROM `images` WHERE `images`.`codigo_sitio_img` ='.$evento;
-    $stmt = $con->prepare($consulta);
-    $stmt->execute();
-    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $resultado["imagen"];
-}
+    function imagen($dato)
+    {
+        require('../scripts/conexion.php');
+        $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img = ' . $dato;
+        $stmt = $con->prepare($consulta);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado["imagen"];
+    }
+    /**devuelve el nombre de las imagenes de la categoria eventos
+     */
+    function imagenEvento($evento)
+    {
+        include 'conexion.php';
+        $consulta = 'SELECT `images`.`nombre_imagen` AS "imagen" FROM `images` WHERE `images`.`codigo_sitio_img` =' . $evento;
+        $stmt = $con->prepare($consulta);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado["imagen"];
+    }
 
-function buscador(){
-    require('conexion.php');
-         //se saca el número de items que hay en la base de datos----------
+    function buscador()
+    {
+        require('conexion.php');
+        //se saca el número de items que hay en la base de datos----------
         $NUM_ITEMS_BY_PAGE = 6;
         //recoje el dato de la variable de entrada
         @$entrada  = $_POST['search'];
@@ -86,118 +94,119 @@ function buscador(){
         * se mantiene con la misma petición. De otro modo $entrada se hace null y la consulta simplemente arroja todo el 
         * contenido disponible
         */
-        if(isset($entrada)){
+        if (isset($entrada)) {
             echo '<p style="color:green"> se presionó el botón</p>';
-        }else{
+        } else {
             echo '<p style="color:red"> no se presionó el botón</p>';
-            @$entrada=$_GET["entrada"];
+            @$entrada = $_GET["entrada"];
         }
-        if($entrada != null){
-            echo '<p style="color:green"> Buscó "'.$entrada.'"</p>';
-        }else{
+        if ($entrada != null) {
+            echo '<p style="color:green"> Buscó "' . $entrada . '"</p>';
+        } else {
             echo '<p style="color:green"> Mostrando todo</p>';
-            @$entrada=$_GET["entrada"];
+            @$entrada = $_GET["entrada"];
         }
         //se hace la consulta a la base de datos  para recibir la cantidad de elementos que arroja la consulta
         //$consultar = "SELECT COUNT(*) AS 'total' FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`descripcion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`direccion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`telefono` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`celular` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`horarioAtencion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`redesSociales` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`sitioWeb` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`categoria` USING utf8) LIKE '%" . $entrada . "%')";
-        $consultar= 'SELECT COUNT(*) AS "total" FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%'.$entrada.'%" 
-        OR CONVERT(`descripcion` USING utf8) LIKE "%'.$entrada.'%"
-         OR CONVERT(`direccion` USING utf8) LIKE "%'.$entrada.'%" 
-         OR CONVERT(`telefono` USING utf8) LIKE "%'.$entrada.'%" 
-         OR CONVERT(`celular` USING utf8) LIKE "%'.$entrada.'%" 
-         OR CONVERT(`horarioAtencion` USING utf8) LIKE "%'.$entrada.'%" 
-         OR CONVERT(`sitioWeb` USING utf8) LIKE "%'.$entrada.'%" 
-         OR CONVERT(`categoria` USING utf8) LIKE "%'.$entrada.'%")';
+        $consultar = 'SELECT COUNT(*) AS "total" FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
+        OR CONVERT(`descripcion` USING utf8) LIKE "%' . $entrada . '%"
+         OR CONVERT(`direccion` USING utf8) LIKE "%' . $entrada . '%" 
+         OR CONVERT(`telefono` USING utf8) LIKE "%' . $entrada . '%" 
+         OR CONVERT(`celular` USING utf8) LIKE "%' . $entrada . '%" 
+         OR CONVERT(`horarioAtencion` USING utf8) LIKE "%' . $entrada . '%" 
+         OR CONVERT(`sitioWeb` USING utf8) LIKE "%' . $entrada . '%" 
+         OR CONVERT(`categoria` USING utf8) LIKE "%' . $entrada . '%")';
         $stmt = $con->query($consultar);
         //$numItem almacena el número de elementos
         $numItem = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump ($numItem);
-    //-----------------------------------------------------------------
+        var_dump($numItem);
+        //-----------------------------------------------------------------
         //debe tener uno o más datos para mostrar paginación
-    if ($numItem > 0) {
-        $page = false;
-        //examina la pagina a mostrar y el inicio del registro a mostrar
-        if (isset($_GET["page"])) {
-            $page = $_GET["page"];
-        }
-        if (!$page) {
-            $start = 0;
-            $page = 1;
-        } else {
-            $start = ($page - 1) * $NUM_ITEMS_BY_PAGE;
-        }
-        //calculo el total de paginas
-        $total_pages = ceil($numItem["total"] / $NUM_ITEMS_BY_PAGE);
-        
-        //se hace la consulta a la BD usando LIMIT de forma que muestra la cantidad de items indicado por $NUM_ITEMS_BY_PAGE
-            $consulta = 'SELECT * FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%'.$entrada.'%" 
-            OR CONVERT(`descripcion` USING utf8) LIKE "%'.$entrada.'%"
-             OR CONVERT(`direccion` USING utf8) LIKE "%'.$entrada.'%" 
-             OR CONVERT(`telefono` USING utf8) LIKE "%'.$entrada.'%" 
-             OR CONVERT(`celular` USING utf8) LIKE "%'.$entrada.'%" 
-             OR CONVERT(`horarioAtencion` USING utf8) LIKE "%'.$entrada.'%" 
-             OR CONVERT(`sitioWeb` USING utf8) LIKE "%'.$entrada.'%" 
-             OR CONVERT(`categoria` USING utf8) LIKE "%'.$entrada.'%") LIMIT '.$start.','.$NUM_ITEMS_BY_PAGE;
+        if ($numItem > 0) {
+            $page = false;
+            //examina la pagina a mostrar y el inicio del registro a mostrar
+            if (isset($_GET["page"])) {
+                $page = $_GET["page"];
+            }
+            if (!$page) {
+                $start = 0;
+                $page = 1;
+            } else {
+                $start = ($page - 1) * $NUM_ITEMS_BY_PAGE;
+            }
+            //calculo el total de paginas
+            $total_pages = ceil($numItem["total"] / $NUM_ITEMS_BY_PAGE);
+
+            //se hace la consulta a la BD usando LIMIT de forma que muestra la cantidad de items indicado por $NUM_ITEMS_BY_PAGE
+            $consulta = 'SELECT * FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
+            OR CONVERT(`descripcion` USING utf8) LIKE "%' . $entrada . '%"
+             OR CONVERT(`direccion` USING utf8) LIKE "%' . $entrada . '%" 
+             OR CONVERT(`telefono` USING utf8) LIKE "%' . $entrada . '%" 
+             OR CONVERT(`celular` USING utf8) LIKE "%' . $entrada . '%" 
+             OR CONVERT(`horarioAtencion` USING utf8) LIKE "%' . $entrada . '%" 
+             OR CONVERT(`sitioWeb` USING utf8) LIKE "%' . $entrada . '%" 
+             OR CONVERT(`categoria` USING utf8) LIKE "%' . $entrada . '%") LIMIT ' . $start . ',' . $NUM_ITEMS_BY_PAGE;
             //realiza la consulta y empieza a ordenar los resultados y a escribirlos en el documento
-            
+
             echo '<ul class="row items " style="margin-right:15px">';
-            foreach (consulta($consulta) as $row) {
+            foreach ($this->consulta($consulta) as $row) {
                 echo '<div class="item ">
                             <div class="item__img resultado__img">
-                                <a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="../assets/img/'.dirImg($row["categoria"],$row["codigo"]).'.jpg" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
+                                <a href="sitio?siteName=' . $row['codigo'] . '"><img class ="img-rounded" src="../assets/img/' . $this->dirImg($row["categoria"], $row["codigo"]) . '.jpg" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
                             </div>
                              <div class="item__info">
-                                <h3>' . $row["nombre"] . '</h3><h4>' . $row["direccion"] . '</h4><p>' . substr($row["descripcion"], 0, 120). '....</p><a href="sitio?siteName='.$row['codigo'].'" class="button ">Más información</a><!-- 2.1 -->
+                                <h3>' . $row["nombre"] . '</h3><h4>' . $row["direccion"] . '</h4><p>' . substr($row["descripcion"], 0, 120) . '....</p><a href="sitio?siteName=' . $row['codigo'] . '" class="button ">Más información</a><!-- 2.1 -->
                             </div>
                         </div>';
             }
-        echo '</ul>';
-        echo '<nav>';
-        echo '<ul class="pagination">';
-        //Organiza los índices del paginador
-        if ($total_pages > 1) {
-            if ($page != 1) {
-                echo '<li class="page-item"><a class="page-link" href="buscador?page=' . ($page - 1) . '&entrada='.$entrada. '"><span aria-hidden="true">&laquo;</span></a></li>';
-            }
-            //mustra todos los indices necesarios
-            for ($i = 1; $i <= $total_pages; $i++) {
-                if ($page == $i) {
-                    echo '<li class="page-item active"><a class="page-link" href="#">' . $page . '</a></li>';
-                } else {
-                    echo '<li class="page-item"><a title="esta es" class="page-link" href="buscador?page=' . $i . '&entrada='.$entrada.'">' . $i . '</a></li>';
+            echo '</ul>';
+            echo '<nav>';
+            echo '<ul class="pagination">';
+            //Organiza los índices del paginador
+            if ($total_pages > 1) {
+                if ($page != 1) {
+                    echo '<li class="page-item"><a class="page-link" href="buscador?page=' . ($page - 1) . '&entrada=' . $entrada . '"><span aria-hidden="true">&laquo;</span></a></li>';
+                }
+                //mustra todos los indices necesarios
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    if ($page == $i) {
+                        echo '<li class="page-item active"><a class="page-link" href="#">' . $page . '</a></li>';
+                    } else {
+                        echo '<li class="page-item"><a title="esta es" class="page-link" href="buscador?page=' . $i . '&entrada=' . $entrada . '">' . $i . '</a></li>';
+                    }
+                }
+
+                if ($page != $total_pages) {
+                    echo '<li class="page-item"><a class="page-link" href="buscador?page=' . ($page + 1) . '&entrada=' . $entrada . '"><span aria-hidden="true">&raquo;</span></a></li>';
                 }
             }
-
-            if ($page != $total_pages) {
-                echo '<li class="page-item"><a class="page-link" href="buscador?page=' . ($page + 1) . '&entrada='.$entrada. '"><span aria-hidden="true">&raquo;</span></a></li>';
-            }
+            echo '</ul>';
+            echo '</nav>';
         }
-        echo '</ul>';
-        echo '</nav>';
     }
-}
-  /**
-    * carga 3 sitios recomendados de forma aleatoria que tengan que ver con el mismo tipo de sitio
-    */
-    function fetchRecommendSide($categoria,$codigo){
+    /**
+     * carga 3 sitios recomendados de forma aleatoria que tengan que ver con el mismo tipo de sitio
+     */
+    function fetchRecommendSide($categoria, $codigo)
+    {
         require('../scripts/conexion.php');
-        $consulta = 'SELECT * FROM `sitio` WHERE categoria="'.$categoria.'"  AND `sitio`.`codigo`!="'.$codigo.'"  ORDER BY rand() LIMIT 3';
-        foreach (consulta($consulta) as $row) {
-            echo '<div class="card">  <div class="card__img">
-        <img src="../assets/img/'.dirImg($categoria,$row["codigo"]).'.jpg " alt="no se puede cargar">
+        $consulta = 'SELECT * FROM `sitio` WHERE categoria="' . $categoria . '"  AND `sitio`.`codigo`!="' . $codigo . '"  ORDER BY rand() LIMIT 3';
+        foreach ($this->consulta($consulta) as $row) {
+            echo '<div class="card">  <div class="card__img" style="filter:brightness(50%);">
+        <img src="../assets/img/' . $this->dirImg($categoria, $row["codigo"]) . '.jpg " alt="no se puede cargar">
     </div>
     <div class="card__texto">
-        <h3>'. $row["nombre"].'</h3>
-        <a href="sitio.php?siteName='.$row["codigo"].'" class="button button__border">Clic para ir</a>
+        <h3>' . $row["nombre"] . '</h3>
+        <a href="sitio.php?siteName=' . $row["codigo"] . '" class="button button__border">Clic para ir</a>
     </div></div>';
             //echo '<p>'. var_dump($row).'</p>';
         }
     }
 
-/**
- * hace una consulta y devuelve un vector, de preferencia usarlo cuando se sabe que hay pocos resultados
- */
-function consulta($consulta)
+    /**
+     * hace una consulta y devuelve un vector, de preferencia usarlo cuando se sabe que hay pocos resultados
+     */
+    function consulta($consulta)
     {
         include '../scripts/conexion.php';
         $stmt = $con->prepare($consulta);
@@ -206,12 +215,13 @@ function consulta($consulta)
         return $resultado;
     }
 
-/* imprime la barra de navegación superior dependiendo de en que sección se encuentre */
-function navBar($ubicacion){
-    switch ($ubicacion) {
-        //los nombres de carpeta deben coincidir en los archivos del proyecto
-        case 'hotel':
-            echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    /* imprime la barra de navegación superior dependiendo de en que sección se encuentre */
+    function navBar($ubicacion)
+    {
+        switch ($ubicacion) {
+                //los nombres de carpeta deben coincidir en los archivos del proyecto
+            case 'hotel':
+                echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -242,9 +252,9 @@ function navBar($ubicacion){
                 </ul>
             </div>
         </nav>';
-            break;
-        case 'historia':
-            echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                break;
+            case 'historia':
+                echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -275,7 +285,7 @@ function navBar($ubicacion){
                 </ul>
             </div>
         </nav>';
-            break;
+                break;
             case 'recreacional':
                 echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
@@ -305,9 +315,9 @@ function navBar($ubicacion){
                 </div>
             </nav>';
                 break;
-        case 'restaurante':
-            $color='';
-            echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            case 'restaurante':
+                $color = '';
+                echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -320,27 +330,27 @@ function navBar($ubicacion){
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dondeAlojarse?name=hotel"'. $color.'>¿Dónde alojarse?</a>
+                        <a class="nav-link" href="dondeAlojarse?name=hotel"' . $color . '>¿Dónde alojarse?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="dondeComprar?name=comercio"'. $color.'>¿Dónde comprar?</a>
+                        <a class="nav-link " href="dondeComprar?name=comercio"' . $color . '>¿Dónde comprar?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="turismoHistorico"'. $color.'>Turismo Histórico</a>
+                        <a class="nav-link" href="turismoHistorico"' . $color . '>Turismo Histórico</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="eventos?name=evento"'. $color.'>Eventos</a>
+                        <a class="nav-link" href="eventos?name=evento"' . $color . '>Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"'. $color.'>¿Qué hacer en Yopal?</a>
+                        <a class="nav-link" href="#"' . $color . '>¿Qué hacer en Yopal?</a>
                     </li>
 
                 </ul>
             </div>
         </nav>';
-            break;
-        case 'inicio':
-            echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                break;
+            case 'inicio':
+                echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index"><img src="assets/img/turismoYopal-logo.png" width="180"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -370,7 +380,7 @@ function navBar($ubicacion){
                 </div>
             </div>
         </nav>';
-            break;
+                break;
             case 'comercio':
                 echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -403,8 +413,8 @@ function navBar($ubicacion){
             </div>
         </nav>';
                 break;
-                case 'evento':
-                    echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            case 'evento':
+                echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -437,6 +447,7 @@ function navBar($ubicacion){
                     </div>
                 </div>
             </nav>';
-                    break;
+                break;
+        }
     }
 }

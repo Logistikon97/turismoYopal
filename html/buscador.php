@@ -67,7 +67,8 @@
         <?php
         //invoca la función creada en funciones.php
         include '../scripts/funciones.php';
-        buscador();//desde funciones.php
+        $buscador=new funciones();
+        $buscador->buscador();//desde funciones.php
         ?>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

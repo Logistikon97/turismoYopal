@@ -20,7 +20,9 @@
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <?php  include '../scripts/funciones.php'; navBar('restaurante');?>
+        <?php  include '../scripts/funciones.php';
+        $comer =new funciones();
+        $comer->navBar('restaurante');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-dondeAlojarse fondo-restaurantes">
             <div class="contenido-header__texto__dondeAlojarse restaurante-texto">
@@ -51,7 +53,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php';
-                nuevo($categoria,'dondeComer'); 
+                fetch_sites_list($categoria,'afuera');
                 @$page = $_GET["page"];
                 ?>
                 <!--FIN LISTA DE ESTABLECIMIENTOS-->

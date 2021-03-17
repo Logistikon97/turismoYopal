@@ -3,6 +3,7 @@
 <!--español-->
 <?php include '../scripts/conexion.php';
 include '../scripts/funciones.php';
+        $sitio = new funciones();
         $entrada = $_GET['siteName'];
         $stmt = $con->prepare('SELECT nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img='.$entrada.' LIMIT 1');
         $stmt->execute();
@@ -40,7 +41,6 @@ include '../scripts/funciones.php';
             }
         }
         ?>
-
 <head>
     <!--carga las configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
         invoca también el CSS de bootstrap y la hoja de estilos local-->
@@ -164,7 +164,7 @@ include '../scripts/funciones.php';
                 </div>
                 <!--muestra enlaces relacionados como cuadros con una imagen de fondo y texto sobrepuesto en cada item que envía al usuario a la dirección indicada-->
                 <aside class="lateral">
-                    <?php fetchRecommendSide($DatosSitio["categoria"],$entrada)//desde funciones.php ?>
+                    <?php $sitio->fetchRecommendSide($DatosSitio["categoria"],$entrada)//desde funciones.php ?>
                 </aside>
             </div>
         </div>

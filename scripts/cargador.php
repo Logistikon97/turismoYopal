@@ -1,10 +1,9 @@
 <?php
 require('conexion.php');
-
-
 //consulta toda la información sobre los sitios y los ajusta de 6 en 6 mostrándolos en lista con paginación
-function nuevo($dato,$nombrePagina)
+function fetch_sites_list ($dato,$nombrePagina)
 {
+    $cargardor =new funciones();
     require('conexion.php');
     //número de items por página
     $NUM_ITEMS_BY_PAGE = 6;
@@ -51,7 +50,7 @@ function nuevo($dato,$nombrePagina)
         echo '<ul class="row items " style="margin-right:15px">';
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="item ">
-        <div class="item__img resultado__img"><a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="../assets/img/sitios/'.imagen($row["codigo"])/*desde funciones.php */.'.jpg" alt="nada" srcset=""
+        <div class="item__img resultado__img"><a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="../assets/img/sitios/'. $cargardor->imagen($row["codigo"])/*desde funciones.php */.'.jpg" alt="nada" srcset=""
                     title="más información"></a>
         </div>
         <div class="item__info">
@@ -59,7 +58,7 @@ function nuevo($dato,$nombrePagina)
             <h4>' . $row["direccion"] . '</h4>
             <p>' . substr($row["descripcion"], 0, 120) . '...</p>
             <a href="sitio?siteName='.$row['codigo'].'" class="button ">Más información</a><!-- 2.1 -->
-            ' . url($row["sitioWeb"]) . '
+            ' . $cargardor->url($row["sitioWeb"]) . '
         </div>
     </div>';
         }

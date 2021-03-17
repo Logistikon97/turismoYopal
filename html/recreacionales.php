@@ -20,7 +20,9 @@
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <?php  include '../scripts/funciones.php'; navBar('recreacional');?>
+        <?php  include '../scripts/funciones.php'; 
+        $recreacional=new funciones();
+        $recreacional->navBar('recreacional');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-recreacional">
                 <h1 class="centrar-texto">Centros recreacionales, parques temáticos y más</h1>
@@ -49,7 +51,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php';
-                nuevo($categoria,'recreacionales'); 
+                fetch_sites_list($categoria,'recreacionales'); 
                 @$page = $_GET["page"];
                 ?>
                 <!--FIN LISTA DE ESTABLECIMIENTOS-->

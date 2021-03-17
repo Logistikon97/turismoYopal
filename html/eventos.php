@@ -20,13 +20,14 @@
         function eventosLista()
         {
             include 'scripts/conexion.php';
+            $evento =new funciones();
             $consulta = 'SELECT `sitio`.`codigo` AS "codigo",`sitio`.`nombre` AS "nombreEvento",fechas_eventos.fecha_inicio FROM sitio,fechas_eventos WHERE sitio.categoria="evento" AND fechas_eventos.codigo_evento=sitio.codigo ORDER BY fechas_eventos.fecha_inicio ASC';
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
-                echo '<span style="color:green;">DATO QUE ENTRA: '.imagenEvento($row['codigo']).'</span>';
-                echo '<div class="contenedor-evento_item" style="background-image: url(../assets/img/eventos/'.imagenEvento($row['codigo'])/*desde funciones.php*/.'.jpg);">
+                echo '<span style="color:green;">DATO QUE ENTRA: '.$evento->imagenEvento($row['codigo']).'</span>';
+                echo '<div class="contenedor-evento_item" style="background-image: url(../assets/img/eventos/'.$evento->imagenEvento($row['codigo'])/*desde funciones.php*/.'.jpg);">
                 <a href="#"  style="text-decoration: none;"><div class="item-evento">
                     <h4>' . $row['nombreEvento'] . '</h4>
                 </div></a>
@@ -37,7 +38,8 @@
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <?php  include '../scripts/funciones.php'; navBar('evento');?>
+        <?php  include '../scripts/funciones.php';
+        $evento->navBar('evento');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-evento">
             <div class="contenido-header__texto__dondeAlojarse restaurante-texto">

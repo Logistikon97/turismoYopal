@@ -20,7 +20,9 @@
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <?php  include '../scripts/funciones.php'; navBar('comercio');?>
+        <?php  include '../scripts/funciones.php'; 
+        $compras =new funciones();
+        $compras->navBar('comercio');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-compras">
                 <h1 class="centrar-texto">¿Dónde comprar en Yopal?</h1>
@@ -49,7 +51,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php';
-                nuevo($categoria,'dondeComprar'); 
+                fetch_sites_list($categoria,'dondeComprar'); 
                 @$page = $_GET["page"];
                 ?>
                 <!--FIN LISTA DE ESTABLECIMIENTOS-->

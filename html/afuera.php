@@ -21,7 +21,9 @@
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <?php  include '../scripts/funciones.php'; navBar('comercio');?>
+        <?php  include '../scripts/funciones.php'; 
+        $afuera =new funciones(); 
+        $afuera->navBar('comercio');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-afuera">
                 <h1 class="centrar-texto">Actividades al aire libre</h1>
@@ -48,9 +50,9 @@
             <!--INICIO LISTA DE ESTABLECIMIENTOS-->
             <div class="datos"><!-- 2 -->
             <?php 
+            include '../scripts/cargador.php';
                 @$categoria = $_GET['name'];
-                include '../scripts/cargador.php';
-                nuevo($categoria,'afuera');
+                fetch_sites_list($categoria,'afuera');
                 @$page = $_GET["page"];
                 ?>
                 <!--FIN LISTA DE ESTABLECIMIENTOS-->

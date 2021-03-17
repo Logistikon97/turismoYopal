@@ -35,8 +35,9 @@ function CargarEventos()
         $result = $con->query('SELECT * FROM `sitio`  WHERE `sitio`.`categoria` ="evento" LIMIT ' . $start . ',' . $NUM_ITEMS_BY_PAGE);
         echo '<ul class="row items " style="margin-right:20px">';
         echo '<div class="eventos__grid_main">';
+        $fecthEvent = new funciones();
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="contenedor-evento_item" style="background-image: url(../assets/img/eventos/'.imagenEvento($row['codigo']).'.jpg);">
+            echo '<div class="contenedor-evento_item" style="background-image: url(../assets/img/eventos/'.$fecthEvent->imagenEvento($row['codigo']).'.jpg);">
             <a href="#"  style="text-decoration: none;"><div class="item-evento">
                 <h4>' . $row['nombre'] . '</h4>
             </div></a>

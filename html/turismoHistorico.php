@@ -17,7 +17,9 @@
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <?php  include '../scripts/funciones.php'; navBar('hotel');?>
+        <?php  include '../scripts/funciones.php'; 
+        $historia=new funciones();
+        $gistoria->navBar('hotel');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-dondeAlojarse">
                 <h1 class="centrar-texto">lugares con historía en Yopal</h1>
@@ -45,7 +47,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php'; //desde funciones.php
-                nuevo($categoria,'turismoHistorico'); 
+                fetch_sites_list($categoria,'turismoHistorico'); 
                 @$page = $_GET["page"];
                 ?>
             </div>

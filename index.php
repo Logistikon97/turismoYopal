@@ -19,7 +19,9 @@
         <div>
             <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
             <!-- agregar style = "background-color: #e90000;" para cambiar color-->
-            <?php include 'scripts/funciones.php'; navBar('inicio'); ?>
+            <?php include 'scripts/funciones.php';
+            $inicio= new funciones();
+            $inicio-> navBar('inicio'); ?>
             <!--ajusta el mensaje de bienvenida en la portada-->
             <div class="contenido-header">
                 <!-- alinea el texto al centro-->
@@ -109,12 +111,13 @@
         function eventosInicio()
         {
             include 'scripts/conexion.php';
+            $eventos =new funciones();
             $consulta = 'SELECT `sitio`.codigo AS "evento",`sitio`.nombre AS "nombre", `fechas_eventos`.fecha_inicio,`fechas_eventos`.fecha_fin FROM `fechas_eventos`,`sitio` WHERE `fechas_eventos`.codigo_evento=sitio.codigo ORDER BY `fechas_eventos`.fecha_inicio ASC LIMIT 0,5';
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
-                echo '<div class="contenedor-evento_item" style="background-image: url(assets/img/eventos/'.imagenEvento($row['evento']).'.jpg);">
+                echo '<div class="contenedor-evento_item" style="background-image: url(assets/img/eventos/'.$eventos->imagenEvento($row['evento']).'.jpg);">
                 <a href="#"  style="text-decoration: none;"><div class="item-evento">
                     <h4>' . $row['nombre'] .'</h4>
                 </div></a>
