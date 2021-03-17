@@ -2,6 +2,7 @@
 <html lang="es">
 <!--español-->
 <?php include '../scripts/conexion.php';
+include '../scripts/funciones.php';
         $entrada = $_GET['siteName'];
         $stmt = $con->prepare('SELECT nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img='.$entrada.' LIMIT 1');
         $stmt->execute();
@@ -163,35 +164,7 @@
                 </div>
                 <!--muestra enlaces relacionados como cuadros con una imagen de fondo y texto sobrepuesto en cada item que envía al usuario a la dirección indicada-->
                 <aside class="lateral">
-                
-                    <!--agrupa los elementos para que permitan la personalización-->
-                    <div class="card">
-                        <div class="card__img">
-                            <img src="../../assets/img/restaurantes/laMamona_icono.jpg" alt="hotel">
-                        </div>
-                        <div class="card__texto">
-                            <h3>la mamona</h3>
-                            <p class="button button__border">clic para ir</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card__img">
-                            <img src="../../assets/img/restaurantes/punto_a_icono.jpg" alt="camaron Rojo">
-                        </div>
-                        <div class="card__texto">
-                            <h3>Punto Ar</h3>
-                            <a href="puntoAR.html" class="button button__border">Clic para ir</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card__img">
-                            <img src="../../assets/img/hotel3.jpg" alt="hotel">
-                        </div>
-                        <div class="card__texto">
-                            <h3>sample text</h3>
-                            <p>clic para ir</p>
-                        </div>
-                    </div>
+                    <?php fetchRecommendSide($DatosSitio["categoria"],$entrada)//desde funciones.php ?>
                 </aside>
             </div>
         </div>

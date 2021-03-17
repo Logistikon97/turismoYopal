@@ -176,6 +176,24 @@ function buscador(){
         echo '</nav>';
     }
 }
+  /**
+    * carga 3 sitios recomendados de forma aleatoria que tengan que ver con el mismo tipo de sitio
+    */
+    function fetchRecommendSide($categoria,$codigo){
+        require('../scripts/conexion.php');
+        $consulta = 'SELECT * FROM `sitio` WHERE categoria="'.$categoria.'"  AND `sitio`.`codigo`!="'.$codigo.'"  ORDER BY rand() LIMIT 3';
+        foreach (consulta($consulta) as $row) {
+            echo '<div class="card">  <div class="card__img">
+        <img src="../assets/img/'.dirImg($categoria,$row["codigo"]).'.jpg " alt="no se puede cargar">
+    </div>
+    <div class="card__texto">
+        <h3>'. $row["nombre"].'</h3>
+        <a href="sitio.php?siteName='.$row["codigo"].'" class="button button__border">Clic para ir</a>
+    </div></div>';
+            //echo '<p>'. var_dump($row).'</p>';
+        }
+    }
+
 /**
  * hace una consulta y devuelve un vector, de preferencia usarlo cuando se sabe que hay pocos resultados
  */
@@ -283,10 +301,6 @@ function navBar($ubicacion){
                         <li class="nav-item">
                             <a class="nav-link" href="eventos?name=evento">Eventos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">¿Qué hacer en Yopal?</a>
-                        </li>
-    
                     </ul>
                 </div>
             </nav>';
@@ -352,9 +366,6 @@ function navBar($ubicacion){
                         <li class="nav-item">
                             <a class="nav-link" href="html/eventos">Eventos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">¿Qué hacer en Yopal?</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -386,9 +397,6 @@ function navBar($ubicacion){
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="eventos?name=evento">Eventos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">¿Qué hacer en Yopal?</a>
                         </li>
                     </ul>
                 </div>
