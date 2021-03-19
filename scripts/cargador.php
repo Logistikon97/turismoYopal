@@ -50,7 +50,7 @@ function fetch_sites_list ($dato,$nombrePagina)
         echo '<ul class="row items " style="margin-right:15px">';
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="item ">
-        <div class="item__img resultado__img"><a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="../assets/img/sitios/'. $cargardor->imagen($row["codigo"])/*desde funciones.php */.'.jpg" alt="nada" srcset=""
+        <div class="item__img resultado__img"><a href="sitio?siteName='.$row['codigo'].'"><img class ="img-rounded" src="'. $cargardor->imagen($row["codigo"])/*desde funciones.php */.'" alt="nada" srcset=""
                     title="más información"></a>
         </div>
         <div class="item__info">

@@ -47,7 +47,7 @@
             <?php 
                 @$categoria = $_GET['name'];
                 include '../scripts/cargador.php'; //desde funciones.php
-                fetch_sites_list($categoria,'afuera');
+                fetch_sites_list($categoria,'dondeAlojarse'); 
                 @$page = $_GET["page"];
                 ?>
             </div>

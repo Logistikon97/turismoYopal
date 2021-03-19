@@ -117,7 +117,7 @@
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
-                echo '<div class="contenedor-evento_item" style="background-image: url(assets/img/eventos/'.$eventos->imagenEvento($row['evento']).'.jpg);">
+                echo '<div class="contenedor-evento_item" style="background-image: url('.$eventos->imagenEvento($row['evento']).');">
                 <a href="#"  style="text-decoration: none;"><div class="item-evento">
                     <h4>' . $row['nombre'] .'</h4>
                 </div></a>

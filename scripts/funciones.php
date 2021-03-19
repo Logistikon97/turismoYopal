@@ -13,38 +13,14 @@
 class funciones
 
 {
-    function dirImg($cat, $codigoSitio)
+    function dirImg($codigoSitio)
     {
         $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img=' . $codigoSitio;
         require '../scripts/conexion.php';
         $stmt = $con->prepare($consulta);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        //$iman = $resultado["imgCod"];
-        switch ($cat) {
-                //los nombres de carpeta deben coincidir en los archivos del proyecto
-            case 'comercio':
-                return 'sitios/' . $resultado["imagen"];
-                break;
-            case 'afuera':
-                return 'sitios/' . $resultado["imagen"];
-                break;
-            case 'evento':
-                return 'eventos/' . $resultado["imagen"];
-                break;
-            case 'recreacional':
-                return 'sitios/' . $resultado["imagen"];
-                break;
-            case 'restaurante':
-                return 'sitios/' . $resultado["imagen"];
-                break;
-            case 'hotel':
-                return 'sitios/' . $resultado["imagen"];
-                break;
-            case 'historia':
-                return 'sitios/' . $resultado["imagen"];
-                break;
-        }
+                return ''. $resultado["imagen"];
     }
     //si el sitio tiene página web propia, se mostrará el botón para ir allá
     function url($dato)
@@ -152,7 +128,7 @@ class funciones
             foreach ($this->consulta($consulta) as $row) {
                 echo '<div class="item ">
                             <div class="item__img resultado__img">
-                                <a href="sitio?siteName=' . $row['codigo'] . '"><img class ="img-rounded" src="../assets/img/' . $this->dirImg($row["categoria"], $row["codigo"]) . '.jpg" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
+                                <a href="sitio?siteName=' . $row['codigo'] . '"><img class ="img-rounded" src="' . $this->dirImg($row["codigo"]) .'" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
                             </div>
                              <div class="item__info">
                                 <h3>' . $row["nombre"] . '</h3><h4>' . $row["direccion"] . '</h4><p>' . substr($row["descripcion"], 0, 120) . '....</p><a href="sitio?siteName=' . $row['codigo'] . '" class="button ">Más información</a><!-- 2.1 -->
@@ -190,15 +166,17 @@ class funciones
     function fetchRecommendSide($categoria, $codigo)
     {
         require('../scripts/conexion.php');
-        $consulta = 'SELECT * FROM `sitio` WHERE categoria="' . $categoria . '"  AND `sitio`.`codigo`!="' . $codigo . '"  ORDER BY rand() LIMIT 3';
+        $consulta = 'SELECT * FROM `sitio` WHERE categoria="' . $categoria . '"  AND `sitio`.`codigo`!="' . $codigo . '"  ORDER BY rand() LIMIT 4';
         foreach ($this->consulta($consulta) as $row) {
-            echo '<div class="card">  <div class="card__img" style="filter:brightness(50%);">
-        <img src="../assets/img/' . $this->dirImg($categoria, $row["codigo"]) . '.jpg " alt="no se puede cargar">
+            echo '<div class="card border-0"> 
+                    <div style=" overflow: hidden;" >
+                    <img class="card-img-top" style=" border-radius: 5px; " src="' . $this->dirImg($row["codigo"]) . '" alt="no se puede cargar">
+                    </div>
+    <div class="card_body">
+        <h5 class="card-title">' . $row["nombre"] . '</h5>
+        <a href="sitio.php?siteName=' . $row["codigo"] . '" class="btn btn-primary">Clic para ir</a>
     </div>
-    <div class="card__texto">
-        <h3>' . $row["nombre"] . '</h3>
-        <a href="sitio.php?siteName=' . $row["codigo"] . '" class="button button__border">Clic para ir</a>
-    </div></div>';
+    </div>';
             //echo '<p>'. var_dump($row).'</p>';
         }
     }

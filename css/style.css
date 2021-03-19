@@ -131,9 +131,7 @@ img {
     border-radius: 10px;
 }
 
-.card {
-    display: none;
-}
+
 
 .datos {
     margin-top: 30px;
@@ -150,7 +148,7 @@ img {
     background-color: #e1e1e13f;
 }
 
-.prueba {
+.prueba { 
     display: flex;
     align-items: center;
     gap: 10px;
@@ -267,8 +265,11 @@ que es diferente al de los demás*/
 }
 
 /*=========================================================================================*/
-.lateral{
+.contenido-lateral{
     margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px 20px;
 }
 /*=========================================================================================*/
 /*estilos para header en buscador*/
@@ -495,7 +496,6 @@ que es diferente al de los demás*/
     .card__img {
         position: absolute;
         height: 150px;
-        overflow: hidden;
     }
     .card__texto {
         font-family: 'Oswald', sans-serif;
@@ -544,5 +544,8 @@ que es diferente al de los demás*/
     }
     .contenedor-evento_item:hover{
         filter: unset;
+    }
+    .contenido-lateral{
+        display: inline-block;
     }
 }
