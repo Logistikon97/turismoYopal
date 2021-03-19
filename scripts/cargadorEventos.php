@@ -37,7 +37,7 @@ function CargarEventos()
         echo '<div class="eventos__grid_main">';
         $fecthEvent = new funciones();
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="contenedor-evento_item" style="background-image: url(../assets/img/eventos/'.$fecthEvent->imagenEvento($row['codigo']).'.jpg);">
+            echo '<div class="contenedor-evento_item" style="background-image: url('.$fecthEvent->imagen($row['codigo']).');">
             <a href="#"  style="text-decoration: none;"><div class="item-evento">
                 <h4>' . $row['nombre'] . '</h4>
             </div></a>

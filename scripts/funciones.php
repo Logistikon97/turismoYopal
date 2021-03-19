@@ -13,15 +13,6 @@
 class funciones
 
 {
-    function dirImg($codigoSitio)
-    {
-        $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img=' . $codigoSitio;
-        require '../scripts/conexion.php';
-        $stmt = $con->prepare($consulta);
-        $stmt->execute();
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-                return ''. $resultado["imagen"];
-    }
     //si el sitio tiene página web propia, se mostrará el botón para ir allá
     function url($dato)
     {
@@ -36,19 +27,8 @@ class funciones
 */
     function imagen($dato)
     {
-        require('../scripts/conexion.php');
+        require('conexion.php');
         $consulta = 'SELECT images.nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img = ' . $dato;
-        $stmt = $con->prepare($consulta);
-        $stmt->execute();
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $resultado["imagen"];
-    }
-    /**devuelve el nombre de las imagenes de la categoria eventos
-     */
-    function imagenEvento($evento)
-    {
-        include 'conexion.php';
-        $consulta = 'SELECT `images`.`nombre_imagen` AS "imagen" FROM `images` WHERE `images`.`codigo_sitio_img` =' . $evento;
         $stmt = $con->prepare($consulta);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -128,7 +108,7 @@ class funciones
             foreach ($this->consulta($consulta) as $row) {
                 echo '<div class="item ">
                             <div class="item__img resultado__img">
-                                <a href="sitio?siteName=' . $row['codigo'] . '"><img class ="img-rounded" src="' . $this->dirImg($row["codigo"]) .'" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
+                                <a href="sitio?siteName=' . $row['codigo'] . '"><img class ="img-rounded" src="' . $this->imagen($row["codigo"]) .'" alt="no se ha podido cargar la imagen" srcset="" title="clic aquí para saber más"></a>
                             </div>
                              <div class="item__info">
                                 <h3>' . $row["nombre"] . '</h3><h4>' . $row["direccion"] . '</h4><p>' . substr($row["descripcion"], 0, 120) . '....</p><a href="sitio?siteName=' . $row['codigo'] . '" class="button ">Más información</a><!-- 2.1 -->
@@ -170,7 +150,7 @@ class funciones
         foreach ($this->consulta($consulta) as $row) {
             echo '<div class="card border-0"> 
                     <div style=" overflow: hidden;" >
-                    <img class="card-img-top" style=" border-radius: 5px; " src="' . $this->dirImg($row["codigo"]) . '" alt="no se puede cargar">
+                    <img class="card-img-top" style=" border-radius: 5px; " src="' . $this->imagen($row["codigo"]) . '" alt="no se puede cargar">
                     </div>
     <div class="card_body">
         <h5 class="card-title">' . $row["nombre"] . '</h5>
