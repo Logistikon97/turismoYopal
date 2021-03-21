@@ -26,12 +26,8 @@
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-dondeAlojarse fondo-restaurantes">
             <div class="contenido-header__texto__dondeAlojarse restaurante-texto">
-                <h1 class="centrar-texto">¿Dónde comer en Yopal?</h1>
+                <h1 class="centrar-texto" style="font-size:50px;">¿Dónde comer en Yopal?</h1>
             </div>
-            <p class="centrar-texto" style="color: white;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam illum eligendi
-                voluptatum, sequi quos repellendus, hic autem expedita, facere voluptatibus eos quo? Assumenda quibusdam
-            vel, nihil sunt tempore nobis. Voluptatem.</p>
-
         </div>
     </header>
     <!--limita el espacio en el que se distribuyen los elementos en la página, dándole márgenes en todo el contenido-->
@@ -42,7 +38,7 @@
                 2.1 enlace a información detallada del lugar
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
-            <div class="lateral"><!-- 1 -->
+            <div class="lateral mt-4"><!-- 1 -->
                 <h3>aquí debería haber algo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aperiam quas quo. Temporibus, aliquam
                     laboriosam vero voluptatem veritatis odio consectetur! Ipsam, culpa! Expedita nostrum aspernatur
@@ -60,6 +56,7 @@
             </div>
         </div>
     </div>
+    <?php $comer->footer(); ?>
     <!--scripts necesarios para el funcionamiento de bootstrap-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

@@ -254,11 +254,10 @@ aplica propiedades diferentes al .contenido-header de la página dondeAlojarse*/
 que es diferente al de los demás*/
 
 .fondo-restaurantes {
-    background-image: url(../assets/img/sitios/portaraRestaurantes.jpg);
+    background-image: url(../assets/img/PortadaRestaurante.jpg);
     background-position: center;
     background-size: cover;
 }
-
 .restaurante-texto {
     font-family: 'Oswald', sans-serif;
     color: white;
@@ -276,6 +275,7 @@ que es diferente al de los demás*/
 .contenido-header-buscador{
     background-image: url(../assets/yopal.jpg);
     background-position: center;
+    background-attachment: fixed;
     overflow: hidden;
     height: 60vh;
     display: flex;

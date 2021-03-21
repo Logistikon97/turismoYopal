@@ -45,9 +45,6 @@
             <div class="contenido-header__texto__dondeAlojarse restaurante-texto">
                 <h1 class="centrar-texto">Conoce sobre los eventos en Yopal</h1>
             </div>
-            <p class="centrar-texto" style="color: white;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam illum eligendi
-                voluptatum, sequi quos repellendus.</p>
-
         </div>
     </header>
     <!--limita el espacio en el que se distribuyen los elementos en la página, dándole márgenes en todo el contenido-->
@@ -57,10 +54,9 @@
             2. muestra una lista con los enlaces a los sitios que se están buscando. Cada ítem de esta lista contiene: nombre del lugar, dirección, texto corto, dos botones:
                 2.1 enlace a información detallada del lugar
                 2.2 enlace al sitio web del lugar (si tiene)-->
-            <div class="lateral"><!-- 1 -->
-                <h3>Aquí debería haber algo</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aperiam quas quo. Temporibus, aliquam
-                    laboriosam vero voluptatem veritatis odio consectetur! Ipsam, culpa!</p>
+            <div class="lateral mt-4" ><!-- 1 -->
+                <h3>En Yopal se celebra la cultura llanera...</h3>
+                <p>En la cuidad casanareña se realizan competencias deportivas, teniendo como protagonista el Coleo como deporte de la región; Fiestas en donde se aprecian las manifestaciones culturales, las tradiciones llaneras y las fiestas patronales entre otros eventos.</p>
             </div>
             <!--INICIO LISTA DE ESTABLECIMIENTOS-->
             <div class="datos"><!-- 2 -->
@@ -74,6 +70,7 @@
             </div>
 
     </div>
+    <?php $evento->footer(); ?>
     <!--scripts necesarios para el funcionamiento de bootstrap-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

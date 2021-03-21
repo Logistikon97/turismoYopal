@@ -19,14 +19,10 @@
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
         <?php  include '../scripts/funciones.php'; 
         $historia=new funciones();
-        $gistoria->navBar('hotel');?>
+        $historia->navBar('hotel');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
-        <div class="contenido-header-dondeAlojarse">
-                <h1 class="centrar-texto">lugares con historía en Yopal</h1>
-            <p class="centrar-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam illum eligendi
-                voluptatum, sequi quos repellendus, hic autem expedita, facere voluptatibus eos quo? Assumenda quibusdam
-                vel, nihil sunt tempore nobis. Voluptatem.</p>
-
+        <div class="contenido-header-dondeAlojarse" style="background-image: url(../assets/img/turismoHistorico-portada2.jpg); background-position:center; background-attachment:fixed">
+                <h1 class="centrar-texto" style="font-size:50px;">Lugares con historia en Yopal</h1>
         </div>
     </header>
     <!--limita el espacio en el que se distribuyen los elementos en la página, dándole márgenes en todo el contenido-->
@@ -37,7 +33,7 @@
                 2.1 enlace a información detallada del lugar
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
-            <div class="lateral"><!-- 1 -->
+            <div class="lateral mt-4"><!-- 1 -->
                 <h3>aquí debería haber algo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aperiam quas quo. Temporibus, aliquam
                     laboriosam vero voluptatem veritatis odio consectetur! Ipsam, culpa! Expedita nostrum aspernatur
@@ -53,6 +49,7 @@
             </div>
         </div>
     </div>
+    <?php $historia->footer(); ?>
     <!--scripts necesarios para el funcionamiento de bootstrap-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

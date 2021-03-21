@@ -9,22 +9,21 @@ function fetch_sites_list ($dato,$nombrePagina)
     $NUM_ITEMS_BY_PAGE = 6;
     // asegura el dato de categoría, es decir, en qué sección se encuentra
     if(isset($dato)){
-        echo '<p style="color:green"> se presionó el botón</p>';
+        //echo '<p style="color:green"> se presionó el botón</p>';
     }else{
-        echo '<p style="color:red"> no se presionó el botón</p>';
+        //echo '<p style="color:red"> no se presionó el botón</p>';
         @$dato=$_GET["dato"];
     }
     if($dato != null){
-        echo '<p style="color:green"> Buscó "'.$dato.'"</p>';
+        //echo '<p style="color:green"> Buscó "'.$dato.'"</p>';
     }else{
-        echo '<p style="color:green"> Mostrando todo</p>';
+        //echo '<p style="color:green"> Mostrando todo</p>';
         @$dato=$_GET["dato"];
     }
     //se saca el número de items que hay en la base de datos----------
     $consulta = 'SELECT COUNT(*) as "total" FROM sitio WHERE sitio.categoria ="' . $dato . '"';
     $stmt = $con->query($consulta);
     $numItem = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo '<p style="color:yellow; background-color:red">verificar si funcionan bien los botones de paginación</p>';
     //-----------------------------------------------------------------
     if ($numItem > 0) {
         $page = false;
