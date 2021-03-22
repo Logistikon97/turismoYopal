@@ -51,15 +51,15 @@ class funciones
         * contenido disponible
         */
         if (isset($entrada)) {
-            echo '<p style="color:green"> se presionó el botón</p>';
+            //echo '<p style="color:green"> se presionó el botón</p>';
         } else {
-            echo '<p style="color:red"> no se presionó el botón</p>';
+            //echo '<p style="color:red"> no se presionó el botón</p>';
             @$entrada = $_GET["entrada"];
         }
         if ($entrada != null) {
-            echo '<p style="color:green"> Buscó "' . $entrada . '"</p>';
+           // echo '<p style="color:green"> Buscó "' . $entrada . '"</p>';
         } else {
-            echo '<p style="color:green"> Mostrando todo</p>';
+            //echo '<p style="color:green"> Mostrando todo</p>';
             @$entrada = $_GET["entrada"];
         }
         //se hace la consulta a la base de datos  para recibir la cantidad de elementos que arroja la consulta
@@ -75,7 +75,6 @@ class funciones
         $stmt = $con->query($consultar);
         //$numItem almacena el número de elementos
         $numItem = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($numItem);
         //-----------------------------------------------------------------
         //debe tener uno o más datos para mostrar paginación
         if ($numItem > 0) {
@@ -106,7 +105,7 @@ class funciones
 
             echo '<ul class="row items " style="margin-right:15px">';
             if($this->consulta($consulta)==null){
-                echo '<span style="color:red" >no se encontró nada</span>';
+                echo '<span style="color:red" >no se encontró nada</span>'; 
             }
             foreach ($this->consulta($consulta) as $row) {
                 echo '<div class="item ">
@@ -206,6 +205,9 @@ class funciones
                     <li class="nav-item">
                         <a class="nav-link" href="eventos?name=evento">Eventos</a>
                     </li>
+                    <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                 </ul>
             </div>
         </nav>';
@@ -220,7 +222,7 @@ class funciones
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="turismoHistorico">Turismo Histórico<span
+                        <a class="nav-link active" href="turismoHistorico?name=historia">Turismo Histórico<span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -235,6 +237,9 @@ class funciones
                     <li class="nav-item">
                         <a class="nav-link" href="eventos?name=evento">Eventos</a>
                     </li>
+                    <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                 </ul>
             </div>
         </nav>';
@@ -258,12 +263,15 @@ class funciones
                             <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde comprar?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="turismoHistorico">Turismo Histórico<span
+                            <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico<span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="eventos?name=evento">Eventos</a>
                         </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                     </ul>
                 </div>
             </nav>';
@@ -289,11 +297,14 @@ class funciones
                         <a class="nav-link " href="dondeComprar?name=comercio"' . $color . '>¿Dónde comprar?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="turismoHistorico"' . $color . '>Turismo Histórico</a>
+                        <a class="nav-link" href="turismoHistorico?name=historia"' . $color . '>Turismo Histórico</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="eventos?name=evento"' . $color . '>Eventos</a>
-                    </li>|
+                    </li>
+                    <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                 </ul>
             </div>
         </nav>';
@@ -320,11 +331,14 @@ class funciones
                             <a class="nav-link" href="html/dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="html/turismoHistorico">Turismo Histórico</a>
+                            <a class="nav-link" href="html/turismoHistorico?name=historia">Turismo Histórico</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="html/eventos">Eventos</a>
                         </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -352,11 +366,14 @@ class funciones
                             <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="turismoHistorico">Turismo Histórico</a>
+                            <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="eventos?name=evento">Eventos</a>
                         </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -389,11 +406,49 @@ class funciones
                             <li class="nav-item">
                                 <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>';
                 break;
+                case 'afuera':
+                    echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="true" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="afuera?name=afuera">Actividades al aire libre<span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde Comer?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeComprar?name=comercio">¿Dónde Comprar?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="eventos?name=evento">Eventos</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>';
+                    break;
         }
     }
     function footer(){

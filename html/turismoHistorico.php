@@ -19,7 +19,7 @@
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
         <?php  include '../scripts/funciones.php'; 
         $historia=new funciones();
-        $historia->navBar('hotel');?>
+        $historia->navBar('historia');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenido-header-dondeAlojarse" style="background-image: url(../assets/img/turismoHistorico-portada2.jpg); background-position:center; background-attachment:fixed">
                 <h1 class="centrar-texto" style="font-size:50px;">Lugares con historia en Yopal</h1>
@@ -34,10 +34,7 @@
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
-                <h3>aquí debería haber algo</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aperiam quas quo. Temporibus, aliquam
-                    laboriosam vero voluptatem veritatis odio consectetur! Ipsam, culpa! Expedita nostrum aspernatur
-                    consequatur blanditiis vitae similique mollitia.</p>
+                
             </div>
             <div class="datos"><!-- 2 -->
             <?php 

@@ -225,10 +225,8 @@ aplica propiedades diferentes al .contenido-header de la página dondeAlojarse*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
     background-position: bottom;
     background-size: cover;
-    color: brown;
 }
 /*=========================================================================================*/
 

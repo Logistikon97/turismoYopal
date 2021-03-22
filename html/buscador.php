@@ -70,6 +70,10 @@
         $buscador=new funciones();
         $buscador->buscador();//desde funciones.php
         ?>
+        <div class="no-result">
+        <h3>No se encontraron resultados</h3>
+        <p>No se encontró o aún no existe, prueba escribiendo de diferente forma o escríbenos a<a href="mailto:contacto@turismoyopal.xyz">contacto@turismoyopal.xyz</a> para agregarlo si sabes que existe.</p>
+        </div>
     </div>
     <?php $buscador->footer(); ?>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

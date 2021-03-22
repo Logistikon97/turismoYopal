@@ -40,6 +40,12 @@ include '../scripts/funciones.php';
                     </svg></a>';
             }
         }
+        function atencion($arg){
+            if(strtolower($arg) =='siempre abierto')
+            {
+                echo '<li><span class="indicador">Horario de atención: </span> <span style="color:green"> '. $arg.'</span> </li>';
+            }else if($arg!=null && strtolower($arg) !='siempre abierto'){echo '<li><span class="indicador">Horario de atención:</span> '. $arg.' </li>';}
+        }
         ?>
 <head>
     <!--carga las configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
@@ -58,35 +64,7 @@ include '../scripts/funciones.php';
 <body>
     <header>
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../index">TurismoYopal</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="dondeComer?name=restaurante">¿Dónde comer?<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="turismoHistorico?name=historia">Turismo histórico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dondeComprar?name=comercio">¿Dónde comprar?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="dondeAlojarse?name=hotel">¿Dónde alojarse?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eventos?name=evento">Eventos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">¿Qué hacer en Yopal?</a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
+        <?php $sitio =new funciones(); $sitio->navBar($DatosSitio["categoria"]) ?>
         <!--ajusta el mensaje de bienvenida en la portada-->
         <div class="contenedor-header_restaurante " style="background-image: url(<?php echo $img['imagen'];?>)">
 
@@ -99,7 +77,7 @@ include '../scripts/funciones.php';
             <div class="dos-columnas__hotel">
                 <!--"datos" contiene toda la información relacionada al lugar. todo lo que sea necesario insertar está dentro de este contenedor-->
                 <div class="datos">
-                    <h2><?php echo $DatosSitio['nombre']; ?></h2>
+                    <h2><?php echo $DatosSitio['nombre'].' - '.$DatosSitio["codigo"]; ?></h2>
                     <p><?php echo $DatosSitio['descripcion']; ?>
                     </p>
 
@@ -107,10 +85,12 @@ include '../scripts/funciones.php';
                     <div class="card-datos">
                         <!--organiza la información en listas y agrega íconos de vectores gráficos escalables (.svg)-->
                         <ul class="datos__lista">
-                            <li class="prueba"><span class="indicador"> Dirección: </span> <?php echo " " . $DatosSitio['direccion']; ?></li>
-                            <li class="prueba"><span class="indicador">Teléfono: </span> <?php echo " " . $DatosSitio['telefono']; ?></li>
-                            <li><span class="indicador"> Celular:</span><?php echo " " . $DatosSitio['celular']; ?></li>
-                            <li><span class="indicador">Horario de atención: </span> <?php if(strtolower($DatosSitio['horarioAtencion']) =='siempre abierto'){echo "<span style='color:green'> " . $DatosSitio['horarioAtencion']."</span>";}else{echo " " . $DatosSitio['horarioAtencion'];} ?></li>
+                            <?php if($DatosSitio['direccion']!=null){echo '<li class="prueba"><span class="indicador"> Dirección: </span> '.$DatosSitio['direccion'].'</li>';}
+                                    if($DatosSitio['telefono']!=null){echo '<li class="prueba"><span class="indicador">Teléfono: </span>'.$DatosSitio['telefono'].'</li>';}
+                                    if($DatosSitio['celular']!=null){echo '<li><span class="indicador"> Celular: </span>'.$DatosSitio['celular'].'</li>';}
+                                    if($DatosSitio['horarioAtencion']!=null){echo '';}
+                            ?>
+                            <li><?php atencion($DatosSitio['horarioAtencion']); ?></li>
                             <li class="prueba">
                                 <?php sociales($entrada); ?>
                             </li>
@@ -129,12 +109,15 @@ include '../scripts/funciones.php';
                                 <img class="d-block w-100" src="../assets/img/desliza.jpg" alt="Second slide">
                             </div>
                         </div>';
+                        $cont=0;
                                 while ($row = $img->fetch(PDO::FETCH_ASSOC)) {
-                                    echo '<div class="carousel-item">
+                                    if($cont>=1){
+                                        echo '<div class="carousel-item">
                                 <div class="carousel_img">
                                     <img class="d-block w-100" src="' . $row['imagen'] . '" alt="Second slide">
                                 </div>
                             </div>';
+                                    }$cont++;
                                 }
                                 ?>
                             </div>
@@ -150,10 +133,11 @@ include '../scripts/funciones.php';
                         <!--FIN CAROUSSEL-->
                     </div>
                     <!--invoca el mapa de google con la ubicación del lugar-->
+                    
                     <div>
                     <?php
                         if($DatosSitio["mapa"]!=null){
-                            echo($DatosSitio["mapa"]);
+                            echo('<h2 class="mt-4 mb-4">Como llegar</h2>'. $DatosSitio["mapa"]);
                         }else{
                             echo '<span style="color: red;">no hay mapa de google</span>';
                         }

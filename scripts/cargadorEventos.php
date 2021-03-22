@@ -1,5 +1,4 @@
 <?php
-require('conexion.php');
 //consulta toda la información sobre los eventos y los ajusta de 6 en 6 mostrándolos en lista con paginación
 function CargarEventos()
 {
@@ -9,7 +8,6 @@ function CargarEventos()
     $consulta = 'SELECT COUNT(*) as "total" FROM `sitio` WHERE `sitio`.`categoria` ="evento"';
     $stmt = $con->query($consulta);
     $numItem = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo '<p style="color:yellow; background-color:red">verificar si funcionan bien los botones de paginación</p>';
     //-----------------------------------------------------------------
 
     if ($numItem > 0) {
@@ -38,7 +36,7 @@ function CargarEventos()
         $fecthEvent = new funciones();
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="contenedor-evento_item" style="background-image: url('.$fecthEvent->imagen($row['codigo']).');">
-            <a href="#"  style="text-decoration: none;"><div class="item-evento">
+            <a href="sitio?siteName='.$row["codigo"].'"  style="text-decoration: none;"><div class="item-evento">
                 <h4>' . $row['nombre'] . '</h4>
             </div></a>
         </div>';

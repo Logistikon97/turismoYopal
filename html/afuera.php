@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="../css/style.css">
-    <title>Dónde comprar en Yopal</title>
+    <title>Actividades al aire libre</title>
 </head>
 
 <body>
@@ -23,11 +23,10 @@
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
         <?php  include '../scripts/funciones.php'; 
         $afuera =new funciones(); 
-        $afuera->navBar('comercio');?>
+        $afuera->navBar('afuera');?>
         <!--ajusta el mensaje de bienvenida en la portada-->
-        <div class="contenido-header-afuera">
-                <h1 class="centrar-texto" style="font-size:50px;">Actividades al aire libre</h1>
-
+        <div class="contenido-header-afuera" style="background-image: url(../assets/img/afuera-portada.jpg);">
+                <h1 class="centrar-texto" style="font-size:50px; color:white;">Actividades al aire libre</h1>
         </div>
     </header>
     <!--limita el espacio en el que se distribuyen los elementos en la página, dándole márgenes en todo el contenido-->
@@ -39,10 +38,7 @@
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
-                <h3>aquí debería haber algo</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aperiam quas quo. Temporibus, aliquam
-                    laboriosam vero voluptatem veritatis odio consectetur! Ipsam, culpa! Expedita nostrum aspernatur
-                    consequatur blanditiis vitae similique mollitia.</p>
+           
             </div>
             <!--INICIO LISTA DE ESTABLECIMIENTOS-->
             <div class="datos"><!-- 2 -->
