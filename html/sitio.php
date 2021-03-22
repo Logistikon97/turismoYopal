@@ -140,7 +140,7 @@ include '../scripts/funciones.php';
                         if($DatosSitio["mapa"]!=null){
                             echo('<h2 class="mt-4 mb-4">Como llegar</h2>'. $DatosSitio["mapa"]);
                         }else{
-                            echo '<span style="color: red;">no hay mapa de google</span>';
+                            
                         }
                     ?>
                     </div>
