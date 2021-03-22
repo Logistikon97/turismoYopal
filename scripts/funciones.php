@@ -184,100 +184,118 @@ class funciones
         switch ($ubicacion) {
                 //los nombres de carpeta deben coincidir en los archivos del proyecto
             case 'hotel':
-                echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="dondeAlojarse?name=hotel">¿Dónde alojarse?<span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde comer?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde comprar?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="turismoHistorico?name=historia">Turismo histórico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eventos?name=evento">Eventos</a>
-                    </li>
-                    <li class="nav-item">
-                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="true" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde Comprar? <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde Comer?</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="eventos">Eventos</a>
+                                </li>
+                                <li class="nav-item ">
+                                            <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
                             </li>
-                </ul>
-            </div>
-        </nav>';
+                            </ul>
+                        </div>
+                    </div>
+                </nav>';
                 break;
             case 'historia':
-                echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="turismoHistorico?name=historia">Turismo Histórico<span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde alojarse?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde comer?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde comprar?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eventos?name=evento">Eventos</a>
-                    </li>
-                    <li class="nav-item">
-                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="true" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde Comprar? <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde Comer?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="eventos">Eventos</a>
+                                </li>
+                                <li class="nav-item ">
+                                            <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
                             </li>
-                </ul>
-            </div>
-        </nav>';
+                            </ul>
+                        </div>
+                    </div>
+                </nav>';
                 break;
             case 'recreacional':
-                echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde alojarse?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde comer?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde comprar?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico<span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eventos?name=evento">Eventos</a>
-                        </li>
-                        <li class="nav-item">
-                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="true" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde Comprar? <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde Comer?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="eventos">Eventos</a>
+                                </li>
+                                <li class="nav-item ">
+                                            <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
                             </li>
-                    </ul>
-                </div>
-            </nav>';
+                            </ul>
+                        </div>
+                    </div>
+                </nav>';
                 break;
             case 'restaurante':
                 $color = '';
@@ -289,15 +307,15 @@ class funciones
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                        <a class="nav-link " href="dondeComprar?name=comercio"' . $color . '>¿Dónde comprar?</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active " href="dondeComer?name=restaurante">¿Dónde comer?<span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="dondeAlojarse?name=hotel"' . $color . '>¿Dónde alojarse?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="dondeComprar?name=comercio"' . $color . '>¿Dónde comprar?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="turismoHistorico?name=historia"' . $color . '>Turismo Histórico</a>
@@ -307,6 +325,9 @@ class funciones
                     </li>
                     <li class="nav-item">
                                     <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
                             </li>
                 </ul>
             </div>
@@ -340,7 +361,10 @@ class funciones
                             <a class="nav-link" href="html/eventos">Eventos</a>
                         </li>
                         <li class="nav-item">
-                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                    <a class="nav-link" href="html/afuera?name=afuera">Actividades al aire libre</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="html/recreacionales?name=recreacional">Centros recreacionales</a>
                             </li>
                     </ul>
                 </div>
@@ -349,38 +373,41 @@ class funciones
                 break;
             case 'comercio':
                 echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="true" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="dondeComprar?name=comercio">¿Dónde Comprar? <span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde Comer?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eventos?name=evento">Eventos</a>
-                        </li>
-                        <li class="nav-item">
-                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index"><img src="../assets/img/turismoYopal-logo.png" width="180"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde Comprar? <span
+                                        class="sr-only">(current)</span></a>
                             </li>
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="dondeComer?name=restaurante">¿Dónde Comer?</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="eventos">Eventos</a>
+                            </li>
+                            <li class="nav-item">
+                                        <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>';
+            </nav>';
                 break;
             case 'evento':
                 echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -393,8 +420,8 @@ class funciones
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="eventos?name=evento">Eventos<span
+                            <li class="nav-item ">
+                                <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde Comprar? <span
                                         class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
@@ -404,13 +431,16 @@ class funciones
                                 <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="dondeComprar?name=comercio">¿Dónde Comprar?</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
                             </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="eventos">Eventos</a>
+                            </li>
                             <li class="nav-item">
-                                    <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                        <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
                             </li>
                         </ul>
                     </div>
@@ -428,8 +458,8 @@ class funciones
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="afuera?name=afuera">Actividades al aire libre<span
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="dondeComprar?name=comercio">¿Dónde Comprar? <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
@@ -439,14 +469,17 @@ class funciones
                                     <a class="nav-link" href="dondeAlojarse?name=hotel">¿Dónde Alojarse?</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="dondeComprar?name=comercio">¿Dónde Comprar?</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="turismoHistorico?name=historia">Turismo Histórico</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="eventos?name=evento">Eventos</a>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="eventos">Eventos</a>
                                 </li>
+                                <li class="nav-item active">
+                                            <a class="nav-link" href="afuera?name=afuera">Actividades al aire libre</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="recreacionales?name=recreacional">Centros recreacionales</a>
+                            </li>
                             </ul>
                         </div>
                     </div>
