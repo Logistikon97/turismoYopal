@@ -64,7 +64,7 @@ class funciones
         }
         //se hace la consulta a la base de datos  para recibir la cantidad de elementos que arroja la consulta
         //$consultar = "SELECT COUNT(*) AS 'total' FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`descripcion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`direccion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`telefono` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`celular` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`horarioAtencion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`redesSociales` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`sitioWeb` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`categoria` USING utf8) LIKE '%" . $entrada . "%')";
-        $consultar = 'SELECT COUNT(*) AS "total" FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
+        $consultar = 'SELECT COUNT(*) AS "total" FROM '.$database.'.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
         OR CONVERT(`descripcion` USING utf8) LIKE "%' . $entrada . '%"
          OR CONVERT(`direccion` USING utf8) LIKE "%' . $entrada . '%" 
          OR CONVERT(`telefono` USING utf8) LIKE "%' . $entrada . '%" 
@@ -93,7 +93,7 @@ class funciones
             $total_pages = ceil($numItem["total"] / $NUM_ITEMS_BY_PAGE);
 
             //se hace la consulta a la BD usando LIMIT de forma que muestra la cantidad de items indicado por $NUM_ITEMS_BY_PAGE
-            $consulta = 'SELECT * FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
+            $consulta = 'SELECT * FROM '.$database.'.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
             OR CONVERT(`descripcion` USING utf8) LIKE "%' . $entrada . '%"
              OR CONVERT(`direccion` USING utf8) LIKE "%' . $entrada . '%" 
              OR CONVERT(`telefono` USING utf8) LIKE "%' . $entrada . '%" 
