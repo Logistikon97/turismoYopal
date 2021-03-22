@@ -324,7 +324,7 @@ class funciones
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="html/dondeComprar?name=comercio">¿Dónde Comprar? <span
+                            <a class="nav-link " href="html/dondeComprar?name=comercio">¿Dónde Comprar? <span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">

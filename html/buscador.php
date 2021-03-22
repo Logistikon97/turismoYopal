@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png"  href="../assets/img/turismoYopal-logo-v.png">
     <title>Buscador</title>
 </head>
 
