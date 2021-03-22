@@ -39,7 +39,8 @@
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
-           
+           <h3>Lo divertido está afuera</h3>
+           <p>Ve estas divertidas actividades al aire libre que tú y tu familia pueden disfrutar durante todo el año en nuestra querida ciudad de Yopal</p>
             </div>
             <!--INICIO LISTA DE ESTABLECIMIENTOS-->
             <div class="datos"><!-- 2 -->

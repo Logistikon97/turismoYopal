@@ -35,7 +35,8 @@
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
-                
+                <h3>Turismo con historia</h3>
+                <p>Monumentos, edificios y lugares de todo tipo que puedes visitar cuando se quiere combinar el turismo con la historia del Municipio</p>
             </div>
             <div class="datos"><!-- 2 -->
             <?php 

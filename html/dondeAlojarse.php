@@ -11,6 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="../css/style.css">
+    <script data-ad-client="ca-pub-8451117147033354" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <link rel="icon" type="image/png"  href="../assets/img/turismoYopal-logo-v.png">
     <title>Dónde hospedarse en Yopal</title>
 </head>
@@ -35,7 +36,8 @@
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
-            
+            <h3>¿Dónde alojarse en yopal?</h3>
+            <p>Encuentra tu hotel ideal en Yopal, lugares cómodos y acogedores con gran variedad de precios. Donde puedes alojarte, disfrutar, descansar y relajarte</p>
             </div>
             <div class="datos"><!-- 2 -->
             <?php 

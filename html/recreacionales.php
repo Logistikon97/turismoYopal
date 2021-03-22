@@ -38,7 +38,8 @@
                 2.2 enlace al sitio web del lugar (si tiene)-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
-                
+                <h3>Parques temáticos y centros recreacionales</h3>
+                <p>Encuentre centros vacacionales en Yopal y descubre lugares increíbles pensados para tus días de descanso</p>
             </div>
             <!--INICIO LISTA DE ESTABLECIMIENTOS-->
             <div class="datos"><!-- 2 -->

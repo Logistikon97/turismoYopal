@@ -15,6 +15,7 @@
     <!--<link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/png"  href="../assets/img/turismoYopal-logo-v.png">
+    <script data-ad-client="ca-pub-8451117147033354" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>Dónde comer en Yopal</title>
 </head>
 

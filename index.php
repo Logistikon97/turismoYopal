@@ -38,9 +38,7 @@
             <div class="contexto">
                 <!--ajusta el texto de presentación y aplica estilos-->
                 <h2 class="centrar-texto">¿Qué hacer en yopal?</h2>
-                <p style="width:80%; margin-top:20px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem similique ipsam dolorem! Corrupti
-                    eveniet tempora accusantium rem magnam minima hic, ea obcaecati, temporibus suscipit, earum ut
-                    aliquid veniam ex provident?</p>
+                <p style="width:80%; margin-top:20px">La capital del llano, conocida por sus costumbres y tradiciones siempre tiene las puertas abiertas a los visitantes con un montón de cosas para hacer. Anímate a conocer los lugares más interesantes de la ciudad y enamórate de sus paisajes, sabores, tradiciones y de todo lo que Yopal tiene para ti.</p>
             </div>
             <div class="contenedor-form">
                 <div class="form-buscar">
@@ -56,46 +54,34 @@
                 "hvr-float" hace la animación de flotar al hacer hover-->
                 <div class="cuadricula-inicio__item hvr-float">
                     <h3>¿Donde comprar?</h3>
-                    <a href="html/dondeComprar?name=comercio"><img class="img-rounded" src="assets/img/dondeComprar.jpg" alt="historia" srcset=""></a>
+                    <a href="html/dondeComprar?name=comercio"><img class="img-rounded" src="assets/img/dondeComprar.jpg" alt="No se puede cargar la imagen" srcset=""></a>
                     <p class="mt-3">Si deseas comprar, encontrarás diversos centros comerciales, locales y tiendas con variedades de productos y servicios para los visitantes.</p>
                 </div>
                 <div class="cuadricula-inicio__item hvr-float">
                     <h3>¿Dónde comer?</h3>
-                    <a href="html/dondeComer?name=restaurante"><img class="img-rounded" src="assets/img/comida.jpg" alt="Comida" srcset=""></a>
+                    <a href="html/dondeComer?name=restaurante"><img class="img-rounded" src="assets/img/comida.jpg" alt="No se puede cargar la imagen" srcset=""></a>
                     <p class="mt-3">Para los amantes de la gastronomía, hay una cantidad interminable de restaurantes de comida típica de la región basados  en los sabores del llano.</p>
                 </div>
                 <div class="cuadricula-inicio__item hvr-float">
                     <h3>¿Dónde alojarse?</h3>
-                    <a href="html/dondeAlojarse?name=hotel"><img class="img-rounded" src="assets/img/dondedormir.jpg" alt="dormir" srcset=""></a>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Distinctio rem facilis explicabo officia at possimus voluptatem culpa veritatis nulla dicta, nam
-                        in
-                        omnis magnam aut alias deleniti numquam tempora recusandae?</p>
+                    <a href="html/dondeAlojarse?name=hotel"><img class="img-rounded" src="assets/img/dondedormir.jpg" alt="No se puede cargar la imagen" srcset=""></a>
+                    <p class="mt-3" >Si de hospedarse en la ciudad se trata, hay numerosos hoteles de diferentes categorías, precios y algunos de talla internacional con las mayores comodidades para el huésped.</p>
                 </div>
                 <div class="cuadricula-inicio__item hvr-float">
                     <h3>Turismo histórico</h3>
-                    <a href="html/turismoHistorico?name=historia"><img class="img-rounded" src="assets/img/historia.jpg" alt="historia" srcset=""></a>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Distinctio rem facilis explicabo officia at possimus voluptatem culpa veritatis nulla dicta, nam
-                        in
-                        omnis magnam aut alias deleniti numquam tempora recusandae?</p>
+                    <a href="html/turismoHistorico?name=historia"><img class="img-rounded" src="assets/img/historia.jpg" alt="No se puede cargar la imagen" srcset=""></a>
+                    <p class="mt-3" >Yopal está llena de historias para contar y visitar, conoce estos lugares y entra en la memoria histórica de la ciudad</p>
                 </div>
                 <div class="cuadricula-inicio__item hvr-float">
                     <h3>Centros Recreacionales</h3>
                     <a href="html/recreacionales?name=recreacional">
-                    <img class="img-rounded" src="assets/img/recreacion.jpg" alt="historia" srcset=""> </a>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Distinctio rem facilis explicabo officia at possimus voluptatem culpa veritatis nulla dicta, nam
-                        in
-                        omnis magnam aut alias deleniti numquam tempora recusandae?</p>
+                    <img class="img-rounded" src="assets/img/recreacion.jpg" alt="No se puede cargar la imagen" srcset=""> </a>
+                    <p class="mt-3" >Pasar un rato agradable en familia y disfrutar de piscina, comida, música, estar en contacto con la naturaleza y mucho más, son cosas que se pueden hacer aquí. </p>
                 </div>
                 <div class="cuadricula-inicio__item hvr-float">
                     <h3>Actividades al aire libre</h3>
-                    <a href="html/afuera?name=afuera"><img class="img-rounded" src="assets/img/afuera.jpg" alt="historia" srcset=""></a>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Distinctio rem facilis explicabo officia at possimus voluptatem culpa veritatis nulla dicta, nam
-                        in
-                        omnis magnam aut alias deleniti numquam tempora recusandae?</p>
+                    <a href="html/afuera?name=afuera"><img class="img-rounded" src="assets/img/afuera.jpg" alt="No se puede cargar la imagen" srcset=""></a>
+                    <p class="mt-3" >Si te gusta más aventura al aire libre, la cuidad tiene sitios para realizar actividades como atletismo, caminatas, ciclo paseo, senderismo, fotografía y ríos para pesca y baño</p>
                 </div>
             </div>
         </div>
