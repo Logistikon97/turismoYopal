@@ -105,7 +105,10 @@ class funciones
 
             echo '<ul class="row items " style="margin-right:15px">';
             if($this->consulta($consulta)==null){
-                echo '<span style="color:red" >no se encontró nada</span>'; 
+                echo '<div class="no-result">
+                <h3>No se encontraron resultados</h3>
+                <p>No se encontró o aún no existe, prueba escribiendo de diferente forma o escríbenos a <a href="mailto:contacto@turismoyopal.xyz">contacto@turismoyopal.xyz</a> para agregarlo si sabes que existe.</p>
+                </div>'; 
             }
             foreach ($this->consulta($consulta) as $row) {
                 echo '<div class="item ">
