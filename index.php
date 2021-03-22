@@ -101,7 +101,7 @@
             //recorre los datos de eventos y los muestra según su imagen y nombre
             foreach ($resultado as $row) {
                 echo '<div class="contenedor-evento_item" style="background-image: url('.$eventos->imagen($row['evento']).');">
-                <a href="html/sitio?name='.$row["evento"].'"  style="text-decoration: none;"><div class="item-evento">
+                <a href="html/sitio?name='.$row['evento'].'"  style="text-decoration: none;"><div class="item-evento">
                     <h4>' . $row['nombre'] .'</h4>
                 </div></a>
             </div>';
