@@ -98,6 +98,7 @@
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            //recorre los datos de eventos y los muestra según su imagen y nombre
             foreach ($resultado as $row) {
                 echo '<div class="contenedor-evento_item" style="background-image: url('.$eventos->imagen($row['evento']).');">
                 <a href="html/sitio?name='.$row["codigo"].'"  style="text-decoration: none;"><div class="item-evento">
@@ -107,7 +108,7 @@
             }
         }
         ?>
-        <!--muestra información de eventos PENDIENTE-->
+        <!--muestra información de eventos en la página principal-->
         <div class="eventos contenedor">
             <!--ajusta el texto para los mensajes que funcionen como títulos a entradas en nuevas secciones que vaya a mostrar un nuevo tema-->
             <div class="banerTexto">
