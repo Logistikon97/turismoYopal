@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--español-->
+<!--español cualquiera puede modificar esto-->
 
 <head>
     <!--carga las configuraciones necesarias para compatibilidad de navegación, pantallas y caracteres
