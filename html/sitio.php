@@ -77,7 +77,7 @@ include '../scripts/funciones.php';
             <div class="dos-columnas__hotel">
                 <!--"datos" contiene toda la información relacionada al lugar. todo lo que sea necesario insertar está dentro de este contenedor-->
                 <div class="datos">
-                    <h2><?php echo $DatosSitio['nombre'].' - '.$DatosSitio["codigo"]; ?></h2>
+                    <h2><?php echo $DatosSitio['nombre']; ?></h2>
                     <p><?php echo $DatosSitio['descripcion']; ?>
                     </p>
 
