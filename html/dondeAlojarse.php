@@ -11,7 +11,6 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="../css/style.css">
-    <script data-ad-client="ca-pub-8451117147033354" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <link rel="icon" type="image/png"  href="../assets/img/turismoYopal-logo-v.png">
     <title>Dónde hospedarse en Yopal</title>
 </head>
