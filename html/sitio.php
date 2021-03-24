@@ -111,6 +111,7 @@ include '../scripts/funciones.php';
                         <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel" style="max-width: 500px; margin:auto; ">
                             <div class="carousel-inner">
                                 <?php
+                                /* imprime las imagens en el slider */
                                 $img = $con->query('SELECT images.nombre_imagen AS "imagen" FROM `images` WHERE images.codigo_sitio_img ='.$entrada);
                                 echo '<div class="carousel-item active">
                             <div class="carousel_img">
@@ -118,6 +119,7 @@ include '../scripts/funciones.php';
                             </div>
                         </div>';
                         $cont=0;
+                        //verifica que contador sea mayor a 1 para que no muestre la primer imagen que corresponde a la portada
                                 while ($row = $img->fetch(PDO::FETCH_ASSOC)) {
                                     if($cont>=1){
                                         echo '<div class="carousel-item">
@@ -144,6 +146,7 @@ include '../scripts/funciones.php';
                     
                     <div>
                     <?php
+                    //si hay mapa lo imprime, de lo contrario no lo hace
                         if($DatosSitio["mapa"]!=null){
                             echo('<h2 class="mt-4 mb-4">Como llegar</h2>'. $DatosSitio["mapa"]);
                         }else{
