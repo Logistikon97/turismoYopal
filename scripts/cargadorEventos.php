@@ -1,12 +1,16 @@
 <?php
-//consulta toda la información sobre los eventos y los ajusta de 6 en 6 mostrándolos en lista con paginación
+/**
+ * Consulta toda la información sobre los eventos y los ajusta de 6 en 6 mostrándolos en lista con paginación.
+ * Diferencia de cargador.php en cómo se muestra la información y también en cómo la consulta
+ * @return void imprime los eventos encontrados.
+ */
 function CargarEventos()
 {
     require('conexion.php');
-    //se saca el número de items que hay en la base de datos----------
     $NUM_ITEMS_BY_PAGE = 9;
     $consulta = 'SELECT COUNT(*) as "total" FROM `sitio` WHERE `sitio`.`categoria` ="evento"';
     $stmt = $con->query($consulta);
+    //se saca el número de items que hay en la base de datos
     $numItem = $stmt->fetch(PDO::FETCH_ASSOC);
     //-----------------------------------------------------------------
 
@@ -24,15 +28,12 @@ function CargarEventos()
         }
         //calculo el total de paginas
         $total_pages = ceil($numItem["total"] / $NUM_ITEMS_BY_PAGE);
-        /*
-        pongo el número de registros total, el tamaño de página y la página que se muestra
-        echo '<h3>Numero de articulos: '.$numItem["total"].'</h3>';
-        echo '<h3>Mostrando la pagina '.$page.' de ' .$total_pages.' paginas.</h3>'; */
 
         //Se hace la consulta para traer todos los elementos y se empieza a recorren en bucle todos los datos para mostrarlos en la lista
         $result = $con->query('SELECT * FROM `sitio`  WHERE `sitio`.`categoria` ="evento" LIMIT ' . $start . ',' . $NUM_ITEMS_BY_PAGE);
         echo '<ul class="row items " style="margin-right:20px">';
         echo '<div class="eventos__grid_main">';
+        //instancia un objeto de funciones() para usar el método imagen() y traer las imágenes.
         $fecthEvent = new funciones();
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="contenedor-evento_item" style="background-image: url('.$fecthEvent->imagen($row['codigo']).');">

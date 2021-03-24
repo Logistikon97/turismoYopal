@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <!--español-->
-<?php include '../scripts/conexion.php';
+<?php
+/**
+ * Carga la información completa referente al sitio.
+ */
+include '../scripts/conexion.php';
 include '../scripts/funciones.php';
+        //instancia un objeto para usar sus métodos
         $sitio = new funciones();
+        //obtiene el código del sitio
         $entrada = $_GET['siteName'];
+        //realiza la consulta sobre los datos completos del lugar
         $stmt = $con->prepare('SELECT nombre_imagen AS "imagen" FROM images WHERE images.codigo_sitio_img='.$entrada.' LIMIT 1');
         $stmt->execute();
         $img = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -67,7 +74,7 @@ include '../scripts/funciones.php';
         <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
         <?php $sitio =new funciones(); $sitio->navBar($DatosSitio["categoria"]) ?>
         <!--ajusta el mensaje de bienvenida en la portada-->
-        <div class="contenedor-header_restaurante " style="background-image: url(<?php echo $img['imagen'];?>)">
+        <div class="contenedor-header_restaurante " style="background-image: url(<?php echo $sitio->imagen($DatosSitio['codigo'])?>)">
 
         </div>
     </header>

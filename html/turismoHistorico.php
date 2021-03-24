@@ -30,9 +30,7 @@
     <div class="contenedor">
         <!--organiza el contenido en dos columnas en la que 
             1. muestra información de contexto, alguna guía o cualquier tipo de información que convenga para esta sección
-            2. muestra una lista con los enlaces a los sitios que se están buscando. Cada ítem de esta lista contiene: nombre del lugar, dirección, texto corto, dos botones:
-                2.1 enlace a información detallada del lugar
-                2.2 enlace al sitio web del lugar (si tiene)-->
+            2. muestra una lista con los enlaces a los sitios que se están buscando. Cada ítem de esta lista contiene: nombre del lugar, dirección, texto corto, dos botones:-->
         <div class="dos-columnas">
             <div class="lateral mt-4"><!-- 1 -->
                 <h3>Turismo con historia</h3>

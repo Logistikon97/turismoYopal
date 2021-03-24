@@ -1,30 +1,30 @@
 <?php
-//======================================================================
-// FUNCIONES
-//======================================================================
-
-//-----------------------------------------------------
-// Contiene Funciones Que Cumplen Diferentes Propósitos.
-//-----------------------------------------------------
-/*
- * Modifica el nombre de la carpeta en la que se encuentra
- * la imagen y escribe el nombre de la imagen en el documento
+/**
+ * Contiene métodos que sirven para diferentes propósitos al instanciar un objeto de esta clase se llama
+ * el método y este ejecutará su función
+ * @package scripts/funciones.php
+ * @author Juan Carlos Lesmes
  */
 class funciones
 
 {
-    //si el sitio tiene página web propia, se mostrará el botón para ir allá
+    /**
+     * Valida si el valor de url en la base de datos es nulo. De esta forma muestra el botón para navegar al sitio web del lugar si el valor no es nulo
+     * @param type $dato contiene el string del enlace
+     * @return type devuelve un string con la etiqueta <a> con sus atributos necesarios
+     */
     function url($dato)
     {
         if ($dato != null) {
             return '<a href="' . $dato . '" class="button button_2" target="_blank">Web Site</a><!-- 2.2 -->';
         }
     }
-    /*
-    * devuelve el nombre de la imagen relacionada a ese sitio, por defecto, 
-    * la primer imagen que esté almacenada, será que salga de portada, 
-    * es decir imagen1 siempre será la portada
-*/
+    /**
+    * Devuelve los enlaces de las imágenes que se agregaron al sitio. su recorrido fifo entonces la primera imagen 
+    * servirá de portada para el sitio, de ahí en más se muestran las demás imágenes.
+    * @param type $dato es el código del sitio, ya que en base a este se hará la consulta en la base de datos
+    * @return type String con el enlace del a imagen correspondiente
+    */
     function imagen($dato)
     {
         require('conexion.php');
@@ -34,21 +34,20 @@ class funciones
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
         return $resultado["imagen"];
     }
-
+    /**
+     * Muestra los resutados de la búsqueda realizada a través del buscador en la página.
+     * 
+     * @return type void muestra los datos
+     */
     function buscador()
     {
         require('conexion.php');
-        //se saca el número de items que hay en la base de datos----------
+        //se saca el número de items que hay en la base de datos
         $NUM_ITEMS_BY_PAGE = 6;
         //recoje el dato de la variable de entrada
         @$entrada  = $_POST['search'];
-
-        /* 
-        * comprueba si el dato ingresado desde la caja de texto existe, de lo contrario, al no existir y seguir haciendo
-        * referencia a ese dato, significa entonces que está usando los botones de paginación y ya que la consulta se hace 
-        * en base a $entrada, entonces se iguala al valor que envía desde los botones de paginación. de este modo la consulta
-        * se mantiene con la misma petición. De otro modo $entrada se hace null y la consulta simplemente arroja todo el 
-        * contenido disponible
+        /*
+        * comprueba si el dato ingresado desde la caja de texto existe, de lo contrario, al no existir y seguir haciendo referencia a ese dato, significa entonces que está usando los botones de paginación y ya que la consulta se hace en base a $entrada, entonces se iguala al valor que envía desde los botones de paginación. De este modo la consulta se mantiene con la misma petición. De otro modo $entrada se hace null y la consulta simplemente arroja todo el contenido disponible 
         */
         if (isset($entrada)) {
             //echo '<p style="color:green"> se presionó el botón</p>';
@@ -62,8 +61,7 @@ class funciones
             //echo '<p style="color:green"> Mostrando todo</p>';
             @$entrada = $_GET["entrada"];
         }
-        //se hace la consulta a la base de datos  para recibir la cantidad de elementos que arroja la consulta
-        //$consultar = "SELECT COUNT(*) AS 'total' FROM `turismo_yopal`.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`descripcion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`direccion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`telefono` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`celular` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`horarioAtencion` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`redesSociales` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`sitioWeb` USING utf8) LIKE '%" . $entrada . "%' OR CONVERT(`categoria` USING utf8) LIKE '%" . $entrada . "%')";
+        //$consultar tiene el string de la consulta para ejecutarla en la base de datos
         $consultar = 'SELECT COUNT(*) AS "total" FROM '.$database.'.`sitio` WHERE (CONVERT(`nombre` USING utf8) LIKE "%' . $entrada . '%" 
         OR CONVERT(`descripcion` USING utf8) LIKE "%' . $entrada . '%"
          OR CONVERT(`direccion` USING utf8) LIKE "%' . $entrada . '%" 
@@ -89,7 +87,7 @@ class funciones
             } else {
                 $start = ($page - 1) * $NUM_ITEMS_BY_PAGE;
             }
-            //calculo el total de paginas
+            //calculo el total de páginas
             $total_pages = ceil($numItem["total"] / $NUM_ITEMS_BY_PAGE);
 
             //se hace la consulta a la BD usando LIMIT de forma que muestra la cantidad de items indicado por $NUM_ITEMS_BY_PAGE
@@ -104,12 +102,14 @@ class funciones
             //realiza la consulta y empieza a ordenar los resultados y a escribirlos en el documento
 
             echo '<ul class="row items " style="margin-right:15px">';
+            //verifica si se encuentra algún resultado. Si no se encuentra nada, entonces muestra el mensaje de no resultados
             if($this->consulta($consulta)==null){
                 echo '<div class="no-result">
                 <h3>No se encontraron resultados</h3>
                 <p>No se encontró o aún no existe, prueba escribiendo de diferente forma o escríbenos a <a href="mailto:contacto@turismoyopal.xyz">contacto@turismoyopal.xyz</a> para agregarlo si sabes que existe.</p>
                 </div>'; 
             }
+            //reocorre los resultados, ordena la información y la muestra en la página
             foreach ($this->consulta($consulta) as $row) {
                 echo '<div class="item ">
                             <div class="item__img resultado__img">
@@ -146,7 +146,11 @@ class funciones
         }
     }
     /**
-     * carga 3 sitios recomendados de forma aleatoria que tengan que ver con el mismo tipo de sitio
+     * Carga 3 sitios recomendados de forma aleatoria de la misma categoría.
+     * 
+     * @param type $categoria string del nombre de la categoría del sitio
+     * @param type $codigo String del código del sitio
+     * @return type void imprime los sitios
      */
     function fetchRecommendSide($categoria, $codigo)
     {
@@ -162,12 +166,14 @@ class funciones
         <a href="sitio.php?siteName=' . $row["codigo"] . '" class="btn btn-primary">Clic para ir</a>
     </div>
     </div>';
-            //echo '<p>'. var_dump($row).'</p>';
         }
     }
 
     /**
-     * hace una consulta y devuelve un vector, de preferencia usarlo cuando se sabe que hay pocos resultados
+     * Hace una consulta y devuelve un array con los resultados de la consulta.
+     * 
+     * @param type $consulta String con la consulta sql a ejecutar
+     * @return type Array con los resultados
      */
     function consulta($consulta)
     {
@@ -178,7 +184,11 @@ class funciones
         return $resultado;
     }
 
-    /* imprime la barra de navegación superior dependiendo de en que sección se encuentre */
+    /**
+     *  Imprime la barra de navegación superior dependiendo de en que sección se encuentre.
+     *  @param type $ubicacion String con el nombre de la categoria de sitios en la página
+     *  @return type void imprime la barra de navegación
+     */
     function navBar($ubicacion)
     {
         switch ($ubicacion) {

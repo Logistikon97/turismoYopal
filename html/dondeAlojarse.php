@@ -41,7 +41,7 @@
             <div class="datos"><!-- 2 -->
             <?php 
                 @$categoria = $_GET['name'];
-                include '../scripts/cargador.php'; //desde funciones.php
+                include '../scripts/cargador.php';
                 fetch_sites_list($categoria,'dondeAlojarse'); 
                 @$page = $_GET["page"];
                 ?>

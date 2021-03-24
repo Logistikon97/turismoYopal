@@ -1,23 +1,24 @@
 <?php
 require('conexion.php');
-//consulta toda la información sobre los sitios y los ajusta de 6 en 6 mostrándolos en lista con paginación
+/**
+ * Consulta toda la información sobre los sitios y los ajusta de 6 en 6 mostrándolos en lista con paginación
+ * @param type $dato String con la categoría para cargar todos los sitios de este tipo
+ * @param type $nombrePagina String con el nombre de la página en la que se encuentra con el fin de no perder
+ * el hilo de los datos que se muestran al cambiar de página con el paginador
+ * @return void imprime todos los sitios de esta categoría.
+ */
 function fetch_sites_list ($dato,$nombrePagina)
 {
     $cargardor =new funciones();
     require('conexion.php');
     //número de items por página
     $NUM_ITEMS_BY_PAGE = 6;
-    // asegura el dato de categoría, es decir, en qué sección se encuentra
     if(isset($dato)){
-        //echo '<p style="color:green"> se presionó el botón</p>';
     }else{
-        //echo '<p style="color:red"> no se presionó el botón</p>';
         @$dato=$_GET["dato"];
     }
     if($dato != null){
-        //echo '<p style="color:green"> Buscó "'.$dato.'"</p>';
     }else{
-        //echo '<p style="color:green"> Mostrando todo</p>';
         @$dato=$_GET["dato"];
     }
     //se saca el número de items que hay en la base de datos----------
@@ -39,11 +40,7 @@ function fetch_sites_list ($dato,$nombrePagina)
         }
         //calculo el total de paginas
         $total_pages = ceil($numItem["total"] / $NUM_ITEMS_BY_PAGE);
-        /*
-        pongo el número de registros total, el tamaño de página y la página que se muestra
-        echo '<h3>Numero de articulos: '.$numItem["total"].'</h3>';
-        echo '<h3>Mostrando la pagina '.$page.' de ' .$total_pages.' paginas.</h3>'; */
-
+        
         //Se hace la consulta para traer todos los elementos y se empieza a recorren en bucle todos los datos para mostrarlos en la lista
         $result = $con->query('SELECT * FROM `sitio` WHERE sitio.categoria ="' . $dato . '" LIMIT ' . $start . ',' . $NUM_ITEMS_BY_PAGE);
         echo '<ul class="row items " style="margin-right:15px">';
@@ -77,7 +74,6 @@ function fetch_sites_list ($dato,$nombrePagina)
                     echo '<li class="page-item"><a class="page-link" href="'.$nombrePagina.'.php?page=' . $i . '&dato='.$dato.'">' . $i . '</a></li>';
                 }
             }
-
             if ($page != $total_pages) {
                 echo '<li class="page-item"><a class="page-link" href="'.$nombrePagina.'.php?page=' . ($page + 1) . '&dato='.$dato.'"><span aria-hidden="true">&raquo;</span></a></li>';
             }

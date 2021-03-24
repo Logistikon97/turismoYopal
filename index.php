@@ -19,8 +19,6 @@
 <body>
     <header>
         <div>
-            <!-- la etiqueta nav gestionada con bootstrap 4.0 contiene los enlace para las secciones de la página web-->
-            <!-- agregar style = "background-color: #e90000;" para cambiar color-->
             <?php include 'scripts/funciones.php';
             $inicio= new funciones();
             $inicio-> navBar('inicio'); ?>
@@ -88,12 +86,16 @@
         </div>
         <?php
         /**
-         * obtiene los eventos ordenados por fecha más reciente
+         * Obtiene los eventos ordenados por fecha más reciente
+         * @return void imprime los eventos
          */
         function eventosInicio()
         {
             include 'scripts/conexion.php';
             $eventos =new funciones();
+            /*hace la consulta ordenando los resultados por fecha de inicio y limita a 5 ya que en la página son 
+            6 elementos de los cuales 5 son eventos y uno el es enlace a la página donde se muestran todos los eventos
+            */
             $consulta = 'SELECT `sitio`.codigo AS "evento",`sitio`.nombre AS "nombre", `fechas_eventos`.fecha_inicio,`fechas_eventos`.fecha_fin FROM `fechas_eventos`,`sitio` WHERE `fechas_eventos`.codigo_evento=sitio.codigo ORDER BY `fechas_eventos`.fecha_inicio ASC LIMIT 0,5';
             $stmt = $con->prepare($consulta);
             $stmt->execute();
