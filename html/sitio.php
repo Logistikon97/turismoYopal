@@ -118,7 +118,7 @@ include '../scripts/funciones.php';
                             </div>
                         </div>';
                         $cont=0;
-                                while ($row = $img->fetch(PDO::FETCH_ASSOC)) {
+                                while ($row = $sitio->imagen($DatosSitio['codigo'])-> fetch(PDO::FETCH_ASSOC)) {
                                     if($cont>=1){
                                         echo '<div class="carousel-item">
                                 <div class="carousel_img">
